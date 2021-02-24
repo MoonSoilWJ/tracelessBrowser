@@ -1,0 +1,31 @@
+//
+//  TBSearchInputView.h
+//  tracelessBrowser
+//
+//  Created by 杜文杰 on 2020/12/17.
+//
+
+#define beginFrame() CGRectMake(0, STATUS_BAR_HEIGHT + 100, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - (STATUS_BAR_HEIGHT + 0))
+
+#define endFrame()  CGRectMake(0, STATUS_BAR_HEIGHT + 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - (STATUS_BAR_HEIGHT + 0))
+
+
+#import <UIKit/UIKit.h>
+
+@interface TBSearchInputView : UIView
+
+@property (nonatomic, retain) UIView *whiteView;
+
+@property (nonatomic, assign) bool isShowing;
+
+//@property (nonatomic, copy) void(^closed)(void);
+
++ (instancetype)popupViewWithFrame:(CGRect)frame dismissAnimations:(void (^)(void))animations completion:(void (^)(void))completion;
+
+- (instancetype)initWithFrame:(CGRect)frame;
+
+- (void)showFrom:(UIView *)fromView animations:(void (^)(void))animations completion:(void (^)(void))completion;
+
+- (void)deviceOrientionChanged:(UIDeviceOrientation)deviceOriention;
+
+@end
