@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		3B2641D825E113870025F2B1 /* TBCreateNewActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2641D725E113870025F2B1 /* TBCreateNewActivity.m */; };
+		3B2DA37825EC7CFC00FA09D9 /* ChangeSkinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2DA37725EC7CFC00FA09D9 /* ChangeSkinViewController.m */; };
+		3B2DA38125EC8C0800FA09D9 /* ChangeSkinSelectImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2DA38025EC8C0800FA09D9 /* ChangeSkinSelectImageCell.m */; };
+		3B2DA38525EC8C2200FA09D9 /* ChangeSkinSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2DA38425EC8C2200FA09D9 /* ChangeSkinSwitchCell.m */; };
+		3B2DA39F25EF2F0500FA09D9 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2DA39E25EF2F0500FA09D9 /* BaseViewController.m */; };
 		3B2F7A4325C410CF009D5ED7 /* UIViewController+DeviceOriention.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2F7A4225C410CE009D5ED7 /* UIViewController+DeviceOriention.m */; };
 		3B5EB64A258B4FBB000F2A10 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EB649258B4FBB000F2A10 /* AppDelegate.m */; };
 		3B5EB64D258B4FBB000F2A10 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EB64C258B4FBB000F2A10 /* SceneDelegate.m */; };
@@ -68,6 +72,15 @@
 /* Begin PBXFileReference section */
 		3B2641D625E113870025F2B1 /* TBCreateNewActivity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBCreateNewActivity.h; sourceTree = "<group>"; };
 		3B2641D725E113870025F2B1 /* TBCreateNewActivity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBCreateNewActivity.m; sourceTree = "<group>"; };
+		3B2DA37625EC7CFC00FA09D9 /* ChangeSkinViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeSkinViewController.h; sourceTree = "<group>"; };
+		3B2DA37725EC7CFC00FA09D9 /* ChangeSkinViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeSkinViewController.m; sourceTree = "<group>"; };
+		3B2DA37F25EC8C0800FA09D9 /* ChangeSkinSelectImageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeSkinSelectImageCell.h; sourceTree = "<group>"; };
+		3B2DA38025EC8C0800FA09D9 /* ChangeSkinSelectImageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeSkinSelectImageCell.m; sourceTree = "<group>"; };
+		3B2DA38325EC8C2200FA09D9 /* ChangeSkinSwitchCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeSkinSwitchCell.h; sourceTree = "<group>"; };
+		3B2DA38425EC8C2200FA09D9 /* ChangeSkinSwitchCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeSkinSwitchCell.m; sourceTree = "<group>"; };
+		3B2DA38825EC969E00FA09D9 /* checkList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = checkList.h; sourceTree = "<group>"; };
+		3B2DA39D25EF2F0500FA09D9 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		3B2DA39E25EF2F0500FA09D9 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		3B2F7A4125C410CE009D5ED7 /* UIViewController+DeviceOriention.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+DeviceOriention.h"; sourceTree = "<group>"; };
 		3B2F7A4225C410CE009D5ED7 /* UIViewController+DeviceOriention.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+DeviceOriention.m"; sourceTree = "<group>"; };
 		3B5EB645258B4FBB000F2A10 /* tracelessBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tracelessBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -194,11 +207,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B2DA37525EB503D00FA09D9 /* changeSkin */ = {
+			isa = PBXGroup;
+			children = (
+				3B2DA37625EC7CFC00FA09D9 /* ChangeSkinViewController.h */,
+				3B2DA37725EC7CFC00FA09D9 /* ChangeSkinViewController.m */,
+				3B2DA37F25EC8C0800FA09D9 /* ChangeSkinSelectImageCell.h */,
+				3B2DA38025EC8C0800FA09D9 /* ChangeSkinSelectImageCell.m */,
+				3B2DA38325EC8C2200FA09D9 /* ChangeSkinSwitchCell.h */,
+				3B2DA38425EC8C2200FA09D9 /* ChangeSkinSwitchCell.m */,
+			);
+			path = changeSkin;
+			sourceTree = "<group>";
+		};
 		3B2F7A4025C40FB5009D5ED7 /* DeviceOrientation */ = {
 			isa = PBXGroup;
 			children = (
 				3B2F7A4125C410CE009D5ED7 /* UIViewController+DeviceOriention.h */,
 				3B2F7A4225C410CE009D5ED7 /* UIViewController+DeviceOriention.m */,
+				3B2DA39D25EF2F0500FA09D9 /* BaseViewController.h */,
+				3B2DA39E25EF2F0500FA09D9 /* BaseViewController.m */,
 			);
 			path = DeviceOrientation;
 			sourceTree = "<group>";
@@ -206,6 +234,7 @@
 		3B5EB63C258B4FBB000F2A10 = {
 			isa = PBXGroup;
 			children = (
+				3B2DA38825EC969E00FA09D9 /* checkList.h */,
 				3B5EB647258B4FBB000F2A10 /* tracelessBrowser */,
 				3B5EB646258B4FBB000F2A10 /* Products */,
 			);
@@ -370,6 +399,7 @@
 				3B5EB66B258B666D000F2A10 /* TBSearchInputView.m */,
 				3B5EB679258C46B3000F2A10 /* TBTextView.h */,
 				3B5EB67A258C46B3000F2A10 /* TBTextView.m */,
+				3B2DA37525EB503D00FA09D9 /* changeSkin */,
 			);
 			path = main;
 			sourceTree = "<group>";
@@ -500,6 +530,8 @@
 				3B5EB6CB258C4BB9000F2A10 /* NSNumber+ShortCut.m in Sources */,
 				3B5EB6D5258C4BB9000F2A10 /* NSObject+Model.m in Sources */,
 				3B5EB6D8258C4BB9000F2A10 /* UILabel+ShortCut.m in Sources */,
+				3B2DA38125EC8C0800FA09D9 /* ChangeSkinSelectImageCell.m in Sources */,
+				3B2DA39F25EF2F0500FA09D9 /* BaseViewController.m in Sources */,
 				3B5EB6CE258C4BB9000F2A10 /* NSString+ShortCut.m in Sources */,
 				3B5EB650258B4FBB000F2A10 /* ViewController.m in Sources */,
 				3B5EB6D3258C4BB9000F2A10 /* UITableView+ShortCut.m in Sources */,
@@ -517,6 +549,7 @@
 				3B5EB6DB258C4BB9000F2A10 /* UIScreen+ShortCut.m in Sources */,
 				3BE75B8425C9595D0035F37A /* TBSearchPopView.m in Sources */,
 				3B5EB6CC258C4BB9000F2A10 /* UIViewController+ShortCut.m in Sources */,
+				3B2DA37825EC7CFC00FA09D9 /* ChangeSkinViewController.m in Sources */,
 				3B5EB67B258C46B3000F2A10 /* TBTextView.m in Sources */,
 				3B5EB703258C53F2000F2A10 /* UITextView+Placeholder.m in Sources */,
 				3B5EB6D7258C4BB9000F2A10 /* UIDevice+ShortCut.m in Sources */,
@@ -526,6 +559,7 @@
 				3B5EB6D9258C4BB9000F2A10 /* UIView+ShortCut.m in Sources */,
 				3BE75E4325CF89C80035F37A /* TBScreenShotActivity.m in Sources */,
 				3B5EB709258C53F2000F2A10 /* NSUserDefaults+YKCategory.m in Sources */,
+				3B2DA38525EC8C2200FA09D9 /* ChangeSkinSwitchCell.m in Sources */,
 				3BE75E3225CD40AD0035F37A /* UIView+Toast.m in Sources */,
 				3B5EB65B258B4FC3000F2A10 /* main.m in Sources */,
 				3B5EB71225907D29000F2A10 /* iCarousel.m in Sources */,
@@ -694,7 +728,7 @@
 				CODE_SIGN_ENTITLEMENTS = tracelessBrowser/tracelessBrowser.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.2.2.0;
+				CURRENT_PROJECT_VERSION = 1.2.3.0;
 				DEVELOPMENT_TEAM = 4TF4QQTW2C;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/tracelessBrowser/prefixHeader.pch";
 				INFOPLIST_FILE = tracelessBrowser/Info.plist;
@@ -703,7 +737,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.2;
+				MARKETING_VERSION = 1.2.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dwj.tracelessBrowser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -720,7 +754,7 @@
 				CODE_SIGN_ENTITLEMENTS = tracelessBrowser/tracelessBrowser.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.2.2.0;
+				CURRENT_PROJECT_VERSION = 1.2.3.0;
 				DEVELOPMENT_TEAM = 4TF4QQTW2C;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/tracelessBrowser/prefixHeader.pch";
 				INFOPLIST_FILE = tracelessBrowser/Info.plist;
@@ -729,7 +763,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.2;
+				MARKETING_VERSION = 1.2.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dwj.tracelessBrowser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

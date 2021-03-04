@@ -36,8 +36,6 @@
         _gradientLayer.frame = self.bounds;
         [self.layer addSublayer:_gradientLayer];
         
-        self.backgroundColor = THEME_COLOR;
-        
         [self setUpViews];
     }
     return self;

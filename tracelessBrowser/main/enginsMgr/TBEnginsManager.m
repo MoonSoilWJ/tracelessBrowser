@@ -51,4 +51,31 @@ NSString *kCurrentEnginUrlKey = @"engineUrl";
     return enginesArr;
 }
 
+
+//MARK: =========首页照片=======
+/**
+*parm fileName
+*image 图片文件
+*将图片命名为XXX保存包项目沙盒类
+*/
+
++ (BOOL)saveImage:(NSData*)imageData ToDocmentWithFileName:(NSString*)fileName{
+    //2.保存到对应的沙盒目录中，具体代码如下：
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+    NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:fileName];   // 保存文件的名称
+    BOOL result = [imageData writeToFile: filePath atomically:YES]; // 保存成功会返回YES
+    if (result) {
+        return YES;
+    }else{
+        return NO;
+    }
+}
+
++(UIImage *)getImageWithFileName:(NSString *)fileName {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+    NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:fileName];
+    UIImage *result = [UIImage imageWithContentsOfFile:filePath];
+    return result;
+}
+
 @end

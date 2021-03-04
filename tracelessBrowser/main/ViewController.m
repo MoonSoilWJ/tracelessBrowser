@@ -13,12 +13,10 @@
 #import "UIViewController+DeviceOriention.h"
 #import "TBEnginsManager.h"
 #import "UIImage+RTTint.h"
+#import "ChangeSkinViewController.h"
 
-@interface ViewController ()<iCarouselDelegate,iCarouselDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate>{
+@interface ViewController ()<iCarouselDelegate,iCarouselDataSource>{
     UIButton *_settingBtn;
-    
-    UIImageView *_headImageView;
-    UIImageView *_bottomImageView;
 }
 
 @property(nonatomic, retain) TBTextView *textView;
@@ -35,7 +33,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.fd_prefersNavigationBarHidden = YES;
-
+    
     self.backgroundView = [[UIView alloc] initWithFrame:self.view.bounds];
     self.backgroundView.backgroundColor = rgba(239, 238, 247, 1);
     [self.view addSubview:self.backgroundView];
@@ -87,16 +85,7 @@
     [_settingBtn addTarget:self action:@selector(chooseImage) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_settingBtn];
     
-    // 自定义图片
-    _headImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth(), beginFrame().origin.y)];
-    _headImageView.backgroundColor = UIColor.redColor;
-    _headImageView.contentMode = UIViewContentModeScaleAspectFill;
-    [self.backgroundView insertSubview:_headImageView atIndex:1];
-    
-    _bottomImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth(), ScreenHeight()-beginFrame().origin.y)];
-    _bottomImageView.backgroundColor = UIColor.yellowColor;
-    _bottomImageView.contentMode = UIViewContentModeScaleAspectFill;
-    [_pop.whiteView insertSubview:_bottomImageView atIndex:1];
+    [self initSkin];
 }
 
 - (TBSearchInputView *)pop {
@@ -187,34 +176,9 @@
 }
 
 - (void)chooseImage {
-    UIImagePickerController *pick = [[UIImagePickerController alloc] init];
-    pick.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
-    pick.delegate = self;
-    pick.allowsEditing = YES;
-    [self.navigationController presentViewController:pick animated:YES completion:nil];
-}
-
-#pragma mark - image Pciker
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey,id> *)info {
-    [picker dismissViewControllerAnimated:YES completion:nil];
     
-    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    _headImageView.image = image;
-    _bottomImageView.image = image;
-    
-//    NSString * path =NSHomeDirectory();
-//    
-//    NSString * Pathimg =[path stringByAppendingString:@"/Documents/111.png"];
-//
-//    [UIImagePNGRepresentation(imgsave) writeToFile:Pathimg atomically:YES];
-//
-//    NSLog(@"%@",path);//这是沙盒路径
-//
-//
-//    NSString * PATH =[NSString stringWithFormat:@"%@/Documents/%@.png",NSHomeDirectory(),@"text"];
-//
-//    image.image=[[UIImage alloc]initWithContentsOfFile:PATH];
-
+    ChangeSkinViewController *vc = [ChangeSkinViewController new];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - iCarouselDataSource - iCarouselDelegate
@@ -281,8 +245,24 @@
     }
 }
 
+- (void)skinDidChanged:(NSDictionary *)info {
+    NSInteger type = [info[@"type"] integerValue];
+    if (type == 0) { //关闭
+        bool close = [info[@"close"] boolValue];
+        if (close) {
+            self.backgroundView.backgroundColor = rgba(239, 238, 247, 1);
+            self.pop.whiteView.backgroundColor = UIColor.whiteColor;
+        }else {
+            self.pop.whiteView.backgroundColor = UIColor.clearColor;
+            self.backgroundView.backgroundColor = UIColor.clearColor;
+        }
+    }
+}
+
 //MARK: - deviceOrientionChangedProtocol
 - (void)deviceOrientionChanged:(UIDeviceOrientation)deviceOrientation {
+    [super deviceOrientionChanged:deviceOrientation];
+    
     self.backgroundView.frame  = self.view.bounds;
     self.myCarousel.frame = CGRectMake(0, STATUS_BAR_HEIGHT + 20, ScreenWidth(), 80);
     self.goButton.frame = CGRectMake(ScreenWidth()/2 - 25, ScreenHeight() - TAB_BAR_HEIGHT - self.view.height/7, 60, 60);
@@ -291,6 +271,7 @@
     [self.pop deviceOrientionChanged:deviceOrientation];
     
     self.textView.size = CGSizeMake(UIScreen.mainScreen.bounds.size.width, self.view.height/3);
+    _settingBtn.frame = CGRectMake(20, ScreenHeight() - HOME_INDICATOR_HEIGHT - 50, 25, 25);
 }
 
 @end

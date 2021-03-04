@@ -26,13 +26,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.fd_prefersNavigationBarHidden = YES;
     self.fd_interactivePopMaxAllowedInitialDistanceToLeftEdge = 30;
     self.navigationController.fd_fullscreenPopGestureRecognizer.delegate = self;
     
     // 直接自定义WebView为self.view
     WKWebViewConfiguration *config = [WKWebViewConfiguration new];
-    _webView = [[XYWKWebView alloc] initWithFrame:CGRectMake(0, STATUS_BAR_HEIGHT + 44, ScreenWidth(), ScreenHeight() - STATUS_BAR_HEIGHT) configuration:config];
+    _webView = [[XYWKWebView alloc] initWithFrame:CGRectMake(0, STATUS_BAR_HEIGHT + 44, ScreenWidth(), ScreenHeight() - STATUS_BAR_HEIGHT - 44) configuration:config];
     [config.userContentController addScriptMessageHandler:_webView name:_webViewAppName];
     _webView.xy_messageHandlerDelegate = self;
     _webView.navigationDelegate = self;
@@ -50,6 +51,8 @@
     _head = [[TBBrowserHeaderView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth(), 44 + STATUS_BAR_HEIGHT)];
     _head.delegate = self;
     [self.view addSubview:_head];
+    
+//    [self initSkin];
 }
 
 - (void)dealloc {
@@ -484,7 +487,7 @@
 
 //MARK: device oriention changed
 - (void)deviceOrientionChanged:(UIDeviceOrientation)deviceOrientation {
-    _webView.frame = CGRectMake(0, STATUS_BAR_HEIGHT + 44, ScreenWidth(), ScreenHeight() - STATUS_BAR_HEIGHT);
+    _webView.frame = CGRectMake(0, STATUS_BAR_HEIGHT + 44, ScreenWidth(), ScreenHeight() - STATUS_BAR_HEIGHT - 44);
     _progressView.frame = CGRectMake(0, STATUS_BAR_HEIGHT + 44, XYWKScreenW, 1);
     
     _webView.failView.frame = _webView.bounds;
@@ -502,5 +505,18 @@
         [userDefault removeObjectForKey:@"browser"];
     }
 }
+//
+////MARK: 换肤通知
+//- (void)skinDidChanged:(NSDictionary *)info {
+//    NSInteger type = [info[@"type"] integerValue];
+//    if (type == 0) { //关闭
+//        bool close = [info[@"close"] boolValue];
+//        if (close) {
+//            self.head.backgroundColor = UIColor.whiteColor;
+//        }else {
+//            self.head.backgroundColor = UIColor.whiteColor;
+//        }
+//    }
+//}
 
 @end

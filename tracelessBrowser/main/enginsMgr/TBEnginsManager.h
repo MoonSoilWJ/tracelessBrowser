@@ -21,6 +21,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSArray *)enginesArr;
 
++ (BOOL)saveImage:(NSData*)imageData ToDocmentWithFileName:(NSString*)fileName;
+
++ (UIImage *)getImageWithFileName:(NSString *)fileName;
 
 @end
 
