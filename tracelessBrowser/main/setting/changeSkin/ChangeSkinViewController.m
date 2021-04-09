@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"皮肤设置";
+    self.title = @"换肤中心";
     [UINavigationBar appearance].tintColor = THEME_COLOR;
     
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth(), ScreenHeight()) style:UITableViewStyleGrouped];
@@ -30,10 +30,10 @@
     _tableView.sectionHeaderHeight = 0.1;
     [self.view addSubview:_tableView];
     
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageForColor:UIColor.whiteColor] forBarMetrics:UIBarMetricsDefault];
-    _tableView.backgroundColor = UIColor.whiteColor;
+//    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageForColor:UIColor.whiteColor] forBarMetrics:UIBarMetricsDefault];
+//    _tableView.backgroundColor = UIColor.whiteColor;
     
-    [self initSkin];
+//    [self initSkin];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -86,7 +86,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     if (section == 0) {
-        return 0.1;
+        return 0;
     }
     return 44;
 }
@@ -195,20 +195,20 @@
 
     [[NSUserDefaults standardUserDefaults] setObject:mutDic forKey:@"changeSkin"];
 }
-
-- (void)skinDidChanged:(NSDictionary *)info {
-    NSInteger type = [info[@"type"] integerValue];
-    if (type == 0) { //关闭
-        bool close = [info[@"close"] boolValue];
-        if (close) {
-            [[UINavigationBar appearance] setBackgroundImage:[UIImage imageForColor:UIColor.whiteColor] forBarMetrics:UIBarMetricsDefault];
-            _tableView.backgroundColor = UIColor.whiteColor;
-        }else {
-            [[UINavigationBar appearance] setBackgroundImage:[UIImage imageForColor:UIColor.clearColor] forBarMetrics:UIBarMetricsDefault];
-            _tableView.backgroundColor = UIColor.clearColor;
-        }
-    }
-}
+//
+//- (void)skinDidChanged:(NSDictionary *)info {
+//    NSInteger type = [info[@"type"] integerValue];
+//    if (type == 0) { //关闭
+//        bool close = [info[@"close"] boolValue];
+//        if (close) {
+//            [[UINavigationBar appearance] setBackgroundImage:[UIImage imageForColor:UIColor.whiteColor] forBarMetrics:UIBarMetricsDefault];
+////            _tableView.backgroundColor = UIColor.whiteColor;
+//        }else {
+//            [[UINavigationBar appearance] setBackgroundImage:[UIImage imageForColor:UIColor.clearColor] forBarMetrics:UIBarMetricsDefault];
+////            _tableView.backgroundColor = UIColor.clearColor;
+//        }
+//    }
+//}
 
 - (void)deviceOrientionChanged:(UIDeviceOrientation)deviceOrientation {
     [super deviceOrientionChanged:deviceOrientation];

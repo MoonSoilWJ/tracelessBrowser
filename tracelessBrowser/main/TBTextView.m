@@ -16,9 +16,9 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = UIColor.clearColor;
+        self.backgroundColor = UIColor.whiteColor;
         self.font = [UIFont systemFontOfSize:25];
-        self.textContainerInset = UIEdgeInsetsMake(20, 30, 0, 20);
+        self.textContainerInset = UIEdgeInsetsMake(10, 10, 0, 20);
         self.placeholderStr = @"输入文本";
         self.editable = YES;
         self.returnKeyType = UIReturnKeySearch;

@@ -5,21 +5,21 @@
 //  Created by 杜文杰 on 2021/2/20.
 //
 
-#import "TBCreateNewActivity.h"
+#import "TBHistoryActivity.h"
 #import <WebKit/WebKit.h>
 
-@implementation TBCreateNewActivity
+@implementation TBHistoryActivity
 
 +(UIActivityCategory)activityCategory {
     return UIActivityCategoryAction;
 }
 
 - (UIActivityType)activityType {
-    return @"createNew";
+    return @"history";
 }
 
 - (NSString *)activityTitle {
-    return @"新建窗口";
+    return @"浏览记录";
 }
 
 - (BOOL)canPerformWithActivityItems:(NSArray *)activityItems {

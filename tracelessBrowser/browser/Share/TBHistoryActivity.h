@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TBCreateNewActivity : UIActivity
+@interface TBHistoryActivity : UIActivity
 
 @end
 

@@ -14,6 +14,7 @@
 #import "YKCategory.h"
 #import "UIButton+TB.h"
 #import "UINavigationController+FDFullscreenPopGesture.h"
+#import "UIView+Toast.h"
 
 #define rgba(r,g,b,a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
 

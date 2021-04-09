@@ -50,11 +50,17 @@
     [_backBtn addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_backBtn];
     
-    UIImage *home = [UIImage imageNamed:@"toolBar_home"];
+    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(homeAction)];
+    [_backBtn addGestureRecognizer:longPress];
+    
+    UIImage *home = [UIImage imageNamed:@"toolBar_window"];
     home = [home rt_tintedImageWithColor:THEME_COLOR];
     _homeBtn = [UIButton btnWithBgImg:home];
-    _homeBtn.frame = CGRectMake(20 + 45, 5 + STATUS_BAR_HEIGHT, 25, 25);
-    [_homeBtn addTarget:self action:@selector(homeAction) forControlEvents:UIControlEventTouchUpInside];
+    [_homeBtn setTitle:@"1" forState:UIControlStateNormal];
+    [_homeBtn setTitleColor:THEME_COLOR forState:UIControlStateNormal];
+    _homeBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+    _homeBtn.frame = CGRectMake(20 + 45, 5.5 + STATUS_BAR_HEIGHT, 25, 25);
+//    [_homeBtn addTarget:self action:@selector(homeAction) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_homeBtn];
     
     UIImage *menu = [UIImage imageNamed:@"toolBar_menu"];
@@ -64,10 +70,11 @@
     [self addSubview:_menuBtn];
     [_menuBtn addTarget:self action:@selector(menuAction) forControlEvents:UIControlEventTouchUpInside];
     
-    _titleLab = [[UILabel alloc] initWithFrame:CGRectMake(_homeBtn.right + 20, STATUS_BAR_HEIGHT + 2, _menuBtn.left - _homeBtn.right - 20 - 20 , 34)];
+    _titleLab = [[UILabel alloc] initWithFrame:CGRectMake(_homeBtn.right + 5, STATUS_BAR_HEIGHT + 2, _menuBtn.left - _homeBtn.right - 0 - 20 , 34)];
     _titleLab.textAlignment = NSTextAlignmentCenter;
-    _titleLab.numberOfLines = 0;
-    _titleLab.adjustsFontSizeToFitWidth = YES;
+    _titleLab.font = [UIFont systemFontOfSize:16];
+//    _titleLab.numberOfLines = 0;
+//    _titleLab.adjustsFontSizeToFitWidth = YES;
     _titleLab.backgroundColor = UIColor.clearColor;
     _titleLab.textColor = THEME_COLOR;
     _titleLab.userInteractionEnabled = YES;
@@ -146,7 +153,7 @@
 - (void)deviceOrientionChanged:(UIDeviceOrientation)deviceOriention {
     _gradientLayer.frame = self.bounds;
     _backBtn.frame = CGRectMake(20, 5 + STATUS_BAR_HEIGHT, 26, 26);
-    _homeBtn.frame = CGRectMake(20 + 45, 5 + STATUS_BAR_HEIGHT, 25, 25);
+    _homeBtn.frame = CGRectMake(20 + 45, 5.5 + STATUS_BAR_HEIGHT, 25, 25);
     _menuBtn.frame = CGRectMake(ScreenWidth()-20-30, 5 + STATUS_BAR_HEIGHT, 25, 25);
     _titleLab.frame = CGRectMake(_homeBtn.right + 20, STATUS_BAR_HEIGHT + 2, _menuBtn.left - _homeBtn.right - 20 - 20 , 34);
     

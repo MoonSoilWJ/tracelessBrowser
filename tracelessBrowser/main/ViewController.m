@@ -13,10 +13,12 @@
 #import "UIViewController+DeviceOriention.h"
 #import "TBEnginsManager.h"
 #import "UIImage+RTTint.h"
-#import "ChangeSkinViewController.h"
+#import "SettingViewController.h"
+#import "WindowListViewController.h"
 
 @interface ViewController ()<iCarouselDelegate,iCarouselDataSource>{
     UIButton *_settingBtn;
+    UIButton *_windowBtn;
 }
 
 @property(nonatomic, retain) TBTextView *textView;
@@ -62,8 +64,9 @@
     [self.textView addGestureRecognizer:endEditTap];
     
     self.goButton = [[UIButton alloc] initWithFrame:CGRectMake(ScreenWidth()/2 - 25, ScreenHeight() - TAB_BAR_HEIGHT - self.view.height/7, 60, 60)];
-    [self.goButton setImage:[UIImage imageNamed:@"sou_btn"] forState:UIControlStateNormal];
-    [self.goButton setImage:[UIImage imageNamed:@"sou_btn"] forState:UIControlStateHighlighted];
+    self.goButton.backgroundColor = UIColor.whiteColor;
+    [self.goButton setImage:[UIImage imageNamed:@"logo_alpha"] forState:UIControlStateNormal];
+//    [self.goButton setImage:[UIImage imageNamed:@"sou_btn"] forState:UIControlStateHighlighted];
     self.goButton.titleLabel.font = [UIFont systemFontOfSize:22];
     [self.goButton bezierPathRectCorner:UIRectCornerAllCorners conrnerRadius:10];
     [self.goButton addTarget:self action:@selector(goWebView) forControlEvents:UIControlEventTouchUpInside];
@@ -82,8 +85,17 @@
     [_settingBtn setImage:image forState:UIControlStateNormal];
 //    [settingBtn setImage:[UIImage imageNamed:@"circleCloseButton"] forState:UIControlStateHighlighted];
     _settingBtn.titleLabel.font = [UIFont systemFontOfSize:22];
-    [_settingBtn addTarget:self action:@selector(chooseImage) forControlEvents:UIControlEventTouchUpInside];
+    [_settingBtn addTarget:self action:@selector(settingAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_settingBtn];
+    
+    UIImage *window = [UIImage imageNamed:@"toolBar_window"];
+    window = [window rt_tintedImageWithColor:THEME_COLOR];
+    _windowBtn = [UIButton btnWithBgImg:window];
+    [_windowBtn setTitle:@"1" forState:UIControlStateNormal];
+    [_windowBtn setTitleColor:THEME_COLOR forState:UIControlStateNormal];
+    _windowBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+    _windowBtn.frame = CGRectMake(20 + _settingBtn.right, _settingBtn.top, _settingBtn.width, _settingBtn.height);
+    [self.view addSubview:_windowBtn];
     
     [self initSkin];
 }
@@ -175,10 +187,15 @@
     [self.view endEditing:YES];
 }
 
-- (void)chooseImage {
+- (void)settingAction {
     
-    ChangeSkinViewController *vc = [ChangeSkinViewController new];
+    SettingViewController *vc = [SettingViewController new];
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)jumpWindowListVC {
+    WindowListViewController *windowList = [[WindowListViewController alloc] init];
+    [self.navigationController pushViewController:windowList animated:YES];
 }
 
 #pragma mark - iCarouselDataSource - iCarouselDelegate
@@ -200,7 +217,7 @@
         
         UIView *whiteView = [[UIView alloc] initWithFrame:CGRectMake(5, 0, 130, 60)];
         whiteView.backgroundColor = UIColor.whiteColor;
-        [whiteView bezierPathRectCorner:UIRectCornerAllCorners conrnerRadius:10 borderWidth:4 borderColor:THEME_COLOR];
+        [whiteView bezierPathRectCorner:UIRectCornerAllCorners conrnerRadius:10 borderWidth:2 borderColor:THEME_COLOR];
         [view addSubview:whiteView];
         
         UIImageView *imagV = [[UIImageView alloc] initWithFrame:CGRectMake(5, 15, 120, 30)];
@@ -272,6 +289,7 @@
     
     self.textView.size = CGSizeMake(UIScreen.mainScreen.bounds.size.width, self.view.height/3);
     _settingBtn.frame = CGRectMake(20, ScreenHeight() - HOME_INDICATOR_HEIGHT - 50, 25, 25);
+    _windowBtn.frame = CGRectMake(20 + _settingBtn.right, _settingBtn.top, _settingBtn.width, _settingBtn.height);
 }
 
 @end

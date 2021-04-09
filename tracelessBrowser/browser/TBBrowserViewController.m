@@ -13,7 +13,7 @@
 #import "TBEnginsManager.h"
 #import "TBScreenShotActivity.h"
 #import "TBCopyActivity.h"
-#import "TBCreateNewActivity.h"
+#import "TBHistoryActivity.h"
 
 @interface TBBrowserViewController ()<WKUIDelegate, WKNavigationDelegate,XYWKWebViewMessageHandleDelegate, UIGestureRecognizerDelegate, UIScrollViewDelegate, BrowserHeadBtnProtocol>
 @property (nonatomic, strong) UIProgressView  *progressView;
@@ -328,7 +328,7 @@
     NSArray *activityItems = [NSArray arrayWithObjects:_webView.URL, nil];
     
     UIActivityViewController *aVC = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:@[
-        [[TBCreateNewActivity alloc] init],
+//        [[TBCreateNewActivity alloc] init],
         [[TBScreenShotActivity alloc] initWithWebView:_webView],
         [[TBCopyActivity alloc] initWithWebView:_webView],
     ]];
@@ -336,8 +336,8 @@
     aVC.completionWithItemsHandler = ^(NSString *activityType, BOOL completed, NSArray *returnedItems, NSError *activityError) //分享回调
     {
         if (completed) {
-            if ([activityType isEqualToString:@"createNew"]) { //新建网页
-                [self addNewWeb];
+            if ([activityType isEqualToString:@"history"]) { //浏览记录
+                [self jumpHistory];
             } else {
                 
             }
@@ -413,7 +413,7 @@
     return url.absoluteString;
 }
 
-- (void)addNewWeb {
+- (void)jumpHistory {
     
 }
 

@@ -34,7 +34,7 @@
         
         self.whiteView = [[UIView alloc] initWithFrame:beginFrame()];
         self.whiteView.backgroundColor = UIColor.whiteColor;
-        [self.whiteView bezierPathRectCorner:UIRectCornerTopLeft | UIRectCornerTopRight conrnerRadius:10];
+        [self.whiteView bezierPathRectCorner:UIRectCornerTopLeft | UIRectCornerTopRight | UIRectCornerBottomLeft | UIRectCornerBottomRight conrnerRadius:10];
         [self addSubview: self.whiteView];
         
         self.closeBtn = [[UIButton alloc] initWithFrame:CGRectMake(self.whiteView.bounds.size.width - 45, 15, 30, 30)];
@@ -197,7 +197,7 @@
     }else {
         self.whiteView.frame = beginFrame();
     }
-    [self.whiteView bezierPathRectCorner:UIRectCornerTopLeft | UIRectCornerTopRight conrnerRadius:10];
+    [self.whiteView bezierPathRectCorner:UIRectCornerTopLeft | UIRectCornerTopRight | UIRectCornerBottomLeft | UIRectCornerBottomRight conrnerRadius:10];
     self.closeBtn.frame = CGRectMake(self.whiteView.bounds.size.width - 45, 15, 30, 30);
 }
 
