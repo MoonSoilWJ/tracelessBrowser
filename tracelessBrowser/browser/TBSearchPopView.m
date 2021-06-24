@@ -76,6 +76,7 @@
         self.closeBtn.alpha = 1;
     } completion:^(BOOL finished) {
         !completion ? : completion();
+        self.textView.selectedRange = NSRangeMake(0, self.textView.text.length);
     }];
 }
 

@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B18F61C268036A10065B7BD /* TBAboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B18F61A268036A00065B7BD /* TBAboutUsViewController.m */; };
+		3B18F61D268036A10065B7BD /* TBAboutUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B18F61B268036A00065B7BD /* TBAboutUsViewController.xib */; };
+		3B18F625268065260065B7BD /* TBUseTechViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B18F623268065260065B7BD /* TBUseTechViewController.m */; };
+		3B18F626268065260065B7BD /* TBUseTechViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B18F624268065260065B7BD /* TBUseTechViewController.xib */; };
+		3B18F6292683236E0065B7BD /* UINavigationController+TBNavigationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B18F6282683236C0065B7BD /* UINavigationController+TBNavigationDelegate.m */; };
+		3B18F62C2684259F0065B7BD /* WindowListAddNewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B18F62B2684259E0065B7BD /* WindowListAddNewCell.m */; };
 		3B2641D825E113870025F2B1 /* TBHistoryActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2641D725E113870025F2B1 /* TBHistoryActivity.m */; };
 		3B2DA37825EC7CFC00FA09D9 /* ChangeSkinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2DA37725EC7CFC00FA09D9 /* ChangeSkinViewController.m */; };
 		3B2DA38125EC8C0800FA09D9 /* ChangeSkinSelectImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2DA38025EC8C0800FA09D9 /* ChangeSkinSelectImageCell.m */; };
@@ -71,10 +77,21 @@
 		3BF294D726132D5F00CDA66C /* WindowModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BF294D626132D5F00CDA66C /* WindowModel.m */; };
 		3BF294DE261474CE00CDA66C /* WindowListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BF294DD261474CE00CDA66C /* WindowListViewController.m */; };
 		3BF294E326156ABA00CDA66C /* WindowListCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BF294E226156ABA00CDA66C /* WindowListCollectionCell.m */; };
+		3BF2950226244AD200CDA66C /* BrowserTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BF2950126244AD200CDA66C /* BrowserTransition.m */; };
 		3BFC3243260B2B9B00D963DF /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFC3242260B2B9B00D963DF /* SettingViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3B18F619268036A00065B7BD /* TBAboutUsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBAboutUsViewController.h; sourceTree = "<group>"; };
+		3B18F61A268036A00065B7BD /* TBAboutUsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBAboutUsViewController.m; sourceTree = "<group>"; };
+		3B18F61B268036A00065B7BD /* TBAboutUsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TBAboutUsViewController.xib; sourceTree = "<group>"; };
+		3B18F622268065260065B7BD /* TBUseTechViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBUseTechViewController.h; sourceTree = "<group>"; };
+		3B18F623268065260065B7BD /* TBUseTechViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBUseTechViewController.m; sourceTree = "<group>"; };
+		3B18F624268065260065B7BD /* TBUseTechViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TBUseTechViewController.xib; sourceTree = "<group>"; };
+		3B18F6272683236C0065B7BD /* UINavigationController+TBNavigationDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+TBNavigationDelegate.h"; sourceTree = "<group>"; };
+		3B18F6282683236C0065B7BD /* UINavigationController+TBNavigationDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+TBNavigationDelegate.m"; sourceTree = "<group>"; };
+		3B18F62A2684259E0065B7BD /* WindowListAddNewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WindowListAddNewCell.h; sourceTree = "<group>"; };
+		3B18F62B2684259E0065B7BD /* WindowListAddNewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WindowListAddNewCell.m; sourceTree = "<group>"; };
 		3B2641D625E113870025F2B1 /* TBHistoryActivity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBHistoryActivity.h; sourceTree = "<group>"; };
 		3B2641D725E113870025F2B1 /* TBHistoryActivity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBHistoryActivity.m; sourceTree = "<group>"; };
 		3B2DA37625EC7CFC00FA09D9 /* ChangeSkinViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeSkinViewController.h; sourceTree = "<group>"; };
@@ -207,6 +224,8 @@
 		3BF294DD261474CE00CDA66C /* WindowListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WindowListViewController.m; sourceTree = "<group>"; };
 		3BF294E126156ABA00CDA66C /* WindowListCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WindowListCollectionCell.h; sourceTree = "<group>"; };
 		3BF294E226156ABA00CDA66C /* WindowListCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WindowListCollectionCell.m; sourceTree = "<group>"; };
+		3BF2950026244AD200CDA66C /* BrowserTransition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrowserTransition.h; sourceTree = "<group>"; };
+		3BF2950126244AD200CDA66C /* BrowserTransition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrowserTransition.m; sourceTree = "<group>"; };
 		3BFC3241260B2B9B00D963DF /* SettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		3BFC3242260B2B9B00D963DF /* SettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -222,6 +241,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B18F618268036620065B7BD /* aboutUs */ = {
+			isa = PBXGroup;
+			children = (
+				3B18F619268036A00065B7BD /* TBAboutUsViewController.h */,
+				3B18F61A268036A00065B7BD /* TBAboutUsViewController.m */,
+				3B18F61B268036A00065B7BD /* TBAboutUsViewController.xib */,
+			);
+			path = aboutUs;
+			sourceTree = "<group>";
+		};
+		3B18F61E2680648F0065B7BD /* useTech */ = {
+			isa = PBXGroup;
+			children = (
+				3B18F622268065260065B7BD /* TBUseTechViewController.h */,
+				3B18F623268065260065B7BD /* TBUseTechViewController.m */,
+				3B18F624268065260065B7BD /* TBUseTechViewController.xib */,
+			);
+			path = useTech;
+			sourceTree = "<group>";
+		};
 		3B2DA37525EB503D00FA09D9 /* changeSkin */ = {
 			isa = PBXGroup;
 			children = (
@@ -492,6 +531,12 @@
 				3BF294DD261474CE00CDA66C /* WindowListViewController.m */,
 				3BF294E126156ABA00CDA66C /* WindowListCollectionCell.h */,
 				3BF294E226156ABA00CDA66C /* WindowListCollectionCell.m */,
+				3B18F62A2684259E0065B7BD /* WindowListAddNewCell.h */,
+				3B18F62B2684259E0065B7BD /* WindowListAddNewCell.m */,
+				3BF2950026244AD200CDA66C /* BrowserTransition.h */,
+				3BF2950126244AD200CDA66C /* BrowserTransition.m */,
+				3B18F6272683236C0065B7BD /* UINavigationController+TBNavigationDelegate.h */,
+				3B18F6282683236C0065B7BD /* UINavigationController+TBNavigationDelegate.m */,
 			);
 			path = windowList;
 			sourceTree = "<group>";
@@ -501,6 +546,8 @@
 			children = (
 				3BFC3241260B2B9B00D963DF /* SettingViewController.h */,
 				3BFC3242260B2B9B00D963DF /* SettingViewController.m */,
+				3B18F61E2680648F0065B7BD /* useTech */,
+				3B18F618268036620065B7BD /* aboutUs */,
 				3B2DA37525EB503D00FA09D9 /* changeSkin */,
 			);
 			path = setting;
@@ -562,9 +609,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B18F61D268036A10065B7BD /* TBAboutUsViewController.xib in Resources */,
 				3B5EB658258B4FC3000F2A10 /* LaunchScreen.storyboard in Resources */,
 				3B5EB655258B4FC3000F2A10 /* Assets.xcassets in Resources */,
 				3B5EB653258B4FBB000F2A10 /* Main.storyboard in Resources */,
+				3B18F626268065260065B7BD /* TBUseTechViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -587,6 +636,7 @@
 				3B5EB6D3258C4BB9000F2A10 /* UITableView+ShortCut.m in Sources */,
 				3B5EB71E25919B40000F2A10 /* XYWKWebView.m in Sources */,
 				3B5EB6D2258C4BB9000F2A10 /* NSArray+ShortCut.m in Sources */,
+				3B18F61C268036A10065B7BD /* TBAboutUsViewController.m in Sources */,
 				3B5EB71925918CC8000F2A10 /* TBBrowserViewController.m in Sources */,
 				3B5EB6D4258C4BB9000F2A10 /* UIApplication+ShortCut.m in Sources */,
 				3B5EB707258C53F2000F2A10 /* UIViewController+YKCategory.m in Sources */,
@@ -594,13 +644,16 @@
 				3B5EB72A2591DB3F000F2A10 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				3B5EB6FE258C53F2000F2A10 /* UIView+YKCategory.m in Sources */,
 				3B2641D825E113870025F2B1 /* TBHistoryActivity.m in Sources */,
+				3B18F6292683236E0065B7BD /* UINavigationController+TBNavigationDelegate.m in Sources */,
 				3BF294DE261474CE00CDA66C /* WindowListViewController.m in Sources */,
+				3B18F62C2684259F0065B7BD /* WindowListAddNewCell.m in Sources */,
 				3B5EB64A258B4FBB000F2A10 /* AppDelegate.m in Sources */,
 				3BF294D32613257F00CDA66C /* WindowManager.m in Sources */,
 				3B5EB72425919B73000F2A10 /* XYWKTool.m in Sources */,
 				3B5EB6DB258C4BB9000F2A10 /* UIScreen+ShortCut.m in Sources */,
 				3BE75B8425C9595D0035F37A /* TBSearchPopView.m in Sources */,
 				3B5EB6CC258C4BB9000F2A10 /* UIViewController+ShortCut.m in Sources */,
+				3BF2950226244AD200CDA66C /* BrowserTransition.m in Sources */,
 				3B2DA37825EC7CFC00FA09D9 /* ChangeSkinViewController.m in Sources */,
 				3B5EB67B258C46B3000F2A10 /* TBTextView.m in Sources */,
 				3B5EB703258C53F2000F2A10 /* UITextView+Placeholder.m in Sources */,
@@ -635,6 +688,7 @@
 				3B5EB6CD258C4BB9000F2A10 /* NSData+ShortCut.m in Sources */,
 				3B5EB66C258B666D000F2A10 /* TBSearchInputView.m in Sources */,
 				3B5EB701258C53F2000F2A10 /* UIView+Gradient.m in Sources */,
+				3B18F625268065260065B7BD /* TBUseTechViewController.m in Sources */,
 				3B5EB700258C53F2000F2A10 /* UIView+Effects.m in Sources */,
 				3B5EB70D258CA201000F2A10 /* UIButton+TB.m in Sources */,
 			);

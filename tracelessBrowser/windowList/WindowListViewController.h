@@ -10,7 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface WindowListViewController : UIViewController
-
+@property (nonatomic, retain) UICollectionView *collectionView;
 @end
 
 NS_ASSUME_NONNULL_END

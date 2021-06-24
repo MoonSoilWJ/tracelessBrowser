@@ -8,6 +8,11 @@
 #import "WindowManager.h"
 #import "WindowModel.h"
 
+@interface WindowManager() {
+}
+
+@end
+
 @implementation WindowManager
 
 + (instancetype)sharedInstance {
@@ -26,12 +31,35 @@
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clearMemory) name:UIApplicationDidReceiveMemoryWarningNotification
                                                    object:nil];
+        self.windowsArray = [NSMutableArray new];
+        //todo 去本地读取
+        
+        if (self.windowsArray.count <= 0) {
+            [self addNewWindow];
+        }
     }
     return self;
 }
 
+- (WindowModel *)getcurrentWindow {
+    if (self.windowsArray.count > self.currentWindowIndex) {
+    }else {
+        self.currentWindowIndex = self.windowsArray.count - 1;
+    }
+    return self.windowsArray[self.currentWindowIndex];
+}
+
+- (void)addNewWindow {
+    WindowModel *m = [[WindowModel alloc] init];
+    m.isHome = YES;
+    [self.windowsArray addObject:m];
+    self.currentWindowIndex = self.windowsArray.count - 1;
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:WINDOWS_COUNT_CHANGED_NOTI_NAME object:nil];
+}
+
 - (void)clearMemory{
-    for (WindowModel *window in _windowsArray) {
+    for (WindowModel *window in self.windowsArray) {
         window.webView = nil;
     }
 }

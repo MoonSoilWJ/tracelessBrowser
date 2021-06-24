@@ -30,7 +30,14 @@ static char kDTActionHandlerLongPressGestureKey;
     return snap;
 }
 
-
+- (UIImage *)snapshotImageAfterScreenUpdates{
+    CGRect rect = CGRectMake(0, 0, self.width, self.height);
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, false, UIScreen.mainScreen.scale);
+    [self drawViewHierarchyInRect:rect afterScreenUpdates:YES];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
 
 ///////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////

@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "WindowModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -13,8 +14,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface WindowManager : NSObject
 
 @property (nonatomic, retain) NSMutableArray *windowsArray;
+@property (nonatomic, assign) NSInteger currentWindowIndex;
 
 +(instancetype)sharedInstance;
+
+- (WindowModel *)getcurrentWindow;
+
+- (void)addNewWindow;
 
 @end
 

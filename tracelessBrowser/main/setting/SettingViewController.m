@@ -9,6 +9,8 @@
 #import "SettingViewController.h"
 #import "UIViewController+DeviceOriention.h"
 #import <WebKit/WebKit.h>
+#import "TBAboutUsViewController.h"
+#import "TBUseTechViewController.h"
 
 @interface SettingViewController ()<UITableViewDelegate,UITableViewDataSource>{
     UITableView *_tableview;
@@ -27,6 +29,7 @@
         @"清除缓存",
         @"换肤中心",
         @"使用指南",
+        @"关于我们"
     ];
     
     _tableview = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth(), ScreenHeight()) style:UITableViewStyleGrouped];
@@ -66,8 +69,17 @@
             break;
         case 2:
             //使用教程; pageViewController
+        {
+            TBUseTechViewController *use = [[TBUseTechViewController alloc] init];
+            [self.navigationController pushViewController:use animated:YES];
+        }
             break;
-            
+        case 3:
+            //关于我们
+        { TBAboutUsViewController *aboutUs = [[TBAboutUsViewController alloc] init];
+            [self.navigationController pushViewController:aboutUs animated:YES];
+        }
+            break;
         default:
             break;
     }
@@ -101,7 +113,7 @@
 //MARK: 横竖屏切换 delegate
 
 - (void)deviceOrientionChanged:(UIDeviceOrientation)deviceOrientation {
-    [super deviceOrientionChanged:deviceOrientation];
+//    [super deviceOrientionChanged:deviceOrientation];
     
     _tableview.frame =  CGRectMake(0, 0, ScreenWidth(), ScreenHeight());
 }

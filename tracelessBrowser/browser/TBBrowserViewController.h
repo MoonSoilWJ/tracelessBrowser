@@ -12,6 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class WindowModel;
 @interface TBBrowserViewController : UIViewController
 
 @property (nonatomic, strong) XYWKWebView *webView;
@@ -26,6 +27,12 @@ NS_ASSUME_NONNULL_BEGIN
  * 用于子类化自由设置,默认 @“webViewApp”
  */
 @property (nonatomic, copy) NSString * webViewAppName;
+
+@property (nonatomic, retain) WindowModel *windowModel;
+
++(instancetype)sharedInstance;
+
+- (void)loadUrl:(WindowModel *)model;
 
 @end
 

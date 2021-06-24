@@ -15,6 +15,7 @@
 #import "UIButton+TB.h"
 #import "UINavigationController+FDFullscreenPopGesture.h"
 #import "UIView+Toast.h"
+#import "WindowManager.h"
 
 #define rgba(r,g,b,a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
 
@@ -29,3 +30,6 @@
 #define iPhoneX  (MAX(SCREEN_W, SCREEN_H) >= 812)
 
 #define THEME_COLOR rgba(74, 158, 183, 1)
+
+//NOTIFICATION_NAME
+#define WINDOWS_COUNT_CHANGED_NOTI_NAME @"windowCountChangedNotiName"

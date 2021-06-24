@@ -8,8 +8,11 @@
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
-
+@class WindowModel;
 @interface WindowListCollectionCell : UICollectionViewCell
+@property (nonatomic, retain) WindowModel *model;
+
+@property (nonatomic, copy) void(^deleteBlock)(void);
 
 @end
 

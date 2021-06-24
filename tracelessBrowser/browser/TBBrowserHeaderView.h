@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)backBtnTapped;
 
+- (void)windowBtnTapped;
+
 - (void)homeBtnTapped;
 
 - (void)menuBtnTapped;

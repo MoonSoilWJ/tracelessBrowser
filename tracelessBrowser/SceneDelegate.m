@@ -27,7 +27,7 @@
     NSString *urlString = [[NSUserDefaults standardUserDefaults] objectForKey:@"browser"];
     CGFloat offsetY = [[NSUserDefaults standardUserDefaults] floatForKey:@"browserY"];
     if (urlString) {
-        TBBrowserViewController *searchVC = [TBBrowserViewController new];
+        TBBrowserViewController *searchVC = [TBBrowserViewController sharedInstance];
         searchVC.url = urlString;
         searchVC.contentOffsetY = offsetY;
         [nav pushViewController:searchVC animated:NO];

@@ -82,25 +82,21 @@
     CGPoint offset = web.scrollView.contentOffset;
     CGRect originFrame = web.frame;
     CGSize s = web.scrollView.contentSize;
+    s.height = s.height + 100;
 
-        UIView *snapShotView = [web snapshotViewAfterScreenUpdates:YES];
-        snapShotView.frame = CGRectMake(web.frame.origin.x, web.frame.origin.y, snapShotView.frame.size.width, snapShotView.frame.size.height);
-        [web.superview addSubview:snapShotView];
-
-    web.frame = CGRectMake(0, 0, s.width, s.height);
-    [UIView animateWithDuration:.1 * s.height/originFrame.size.height animations:^{
+    web.frame = CGRectMake(0, web.top, s.width, s.height);
+    [UIView animateWithDuration:.4 * s.height/originFrame.size.height delay:0 options:UIViewAnimationOptionCurveEaseInOut  animations:^{
         web.top = web.top - (s.height - originFrame.size.height);
     } completion:^(BOOL finished) {
         if (finished) {
-            UIGraphicsBeginImageContextWithOptions(s, YES, UIScreen.mainScreen.scale);
+            UIGraphicsBeginImageContextWithOptions(CGSizeMake(s.width, s.height-100), YES, UIScreen.mainScreen.scale);
             [web.scrollView.layer renderInContext:UIGraphicsGetCurrentContext()];
             UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
             UIGraphicsEndImageContext();
             completionHandler(image);
-
+            
             web.frame = originFrame;
             web.scrollView.contentOffset = offset;
-            [snapShotView removeFromSuperview];
         }
     }];
 

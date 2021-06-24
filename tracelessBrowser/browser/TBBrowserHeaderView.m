@@ -11,6 +11,7 @@
 #import "TBSearchPopView.h"
 #import "TBTextView.h"
 #import "TBEnginsManager.h"
+#import "WindowListViewController.h"
 
 @interface TBBrowserHeaderView(){
     CAGradientLayer *_gradientLayer;
@@ -56,11 +57,12 @@
     UIImage *home = [UIImage imageNamed:@"toolBar_window"];
     home = [home rt_tintedImageWithColor:THEME_COLOR];
     _homeBtn = [UIButton btnWithBgImg:home];
-    [_homeBtn setTitle:@"1" forState:UIControlStateNormal];
+    [_homeBtn setBackgroundImage:home forState:UIControlStateHighlighted];
+    [_homeBtn setTitle:[NSString stringWithFormat:@"%zi",WindowManager.sharedInstance.windowsArray.count] forState:UIControlStateNormal];
     [_homeBtn setTitleColor:THEME_COLOR forState:UIControlStateNormal];
     _homeBtn.titleLabel.font = [UIFont systemFontOfSize:12];
     _homeBtn.frame = CGRectMake(20 + 45, 5.5 + STATUS_BAR_HEIGHT, 25, 25);
-//    [_homeBtn addTarget:self action:@selector(homeAction) forControlEvents:UIControlEventTouchUpInside];
+    [_homeBtn addTarget:self action:@selector(windowAction) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_homeBtn];
     
     UIImage *menu = [UIImage imageNamed:@"toolBar_menu"];
@@ -82,6 +84,8 @@
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(titleTapped)];
     [_titleLab addGestureRecognizer:tap];
+    
+    [self addObservers];
 }
 
 - (TBSearchPopView *)pop {
@@ -117,6 +121,12 @@
     }
 }
 
+- (void)windowAction {
+    if ([self.delegate respondsToSelector:@selector(windowBtnTapped)]) {
+        [self.delegate windowBtnTapped];
+    }
+}
+
 - (void)menuAction {
     if ([self.delegate respondsToSelector:@selector(menuBtnTapped)]) {
         [self.delegate menuBtnTapped];
@@ -149,6 +159,17 @@
     };
 }
 
+- (void)addObservers {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(windowsCountChangedNoti) name:WINDOWS_COUNT_CHANGED_NOTI_NAME object:nil];
+}
+
+- (void)windowsCountChangedNoti {
+    [_homeBtn setTitle:[NSString stringWithFormat:@"%zi",WindowManager.sharedInstance.windowsArray.count] forState:UIControlStateNormal];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 - (void)deviceOrientionChanged:(UIDeviceOrientation)deviceOriention {
     _gradientLayer.frame = self.bounds;

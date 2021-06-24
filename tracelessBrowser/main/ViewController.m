@@ -32,6 +32,12 @@
 
 @implementation ViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    _textView.text = [WindowManager.sharedInstance getcurrentWindow].homeSearchString;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.fd_prefersNavigationBarHidden = YES;
@@ -57,7 +63,6 @@
         [ws searchUrl:url];
     };
     [self.pop.whiteView addSubview:self.textView];
-    
     
     UISwipeGestureRecognizer *endEditTap = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(endEdit)];
     endEditTap.direction = UISwipeGestureRecognizerDirectionDown | UISwipeGestureRecognizerDirectionUp ;
@@ -91,13 +96,18 @@
     UIImage *window = [UIImage imageNamed:@"toolBar_window"];
     window = [window rt_tintedImageWithColor:THEME_COLOR];
     _windowBtn = [UIButton btnWithBgImg:window];
-    [_windowBtn setTitle:@"1" forState:UIControlStateNormal];
+    [_windowBtn setBackgroundImage:window forState:UIControlStateHighlighted];
+    [_windowBtn setTitle:[NSString stringWithFormat:@"%zi",WindowManager.sharedInstance.windowsArray.count] forState:UIControlStateNormal];
     [_windowBtn setTitleColor:THEME_COLOR forState:UIControlStateNormal];
     _windowBtn.titleLabel.font = [UIFont systemFontOfSize:12];
     _windowBtn.frame = CGRectMake(20 + _settingBtn.right, _settingBtn.top, _settingBtn.width, _settingBtn.height);
+    [_windowBtn addTarget:self action:@selector(jumpWindowListVC) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_windowBtn];
     
+    [self addObservers];
+    
     [self initSkin];
+
 }
 
 - (TBSearchInputView *)pop {
@@ -129,18 +139,7 @@
 
 
 - (void)keyboardWillShow {
-//    if (self.pop.isShowing) {
-//        return;
-//    }
-//    [self.pop addSubview:self.pop.whiteView];
-//    __weak typeof(self) ws = self;
-//    [self.pop showFrom:self.backgroundView animations:^{
-//        __strong typeof(ws) strong = ws;
-//        strong.textView.top = 50;
-//        [strong.textView becomeFirstResponder];
-//    } completion:^{
-//
-//    }];
+
 }
 
 //MARK: action
@@ -178,8 +177,14 @@
 }
 
 - (void)jumpbrowserVC:(NSString *)urlStr {
-    TBBrowserViewController *searchVC = [TBBrowserViewController new];
+    WindowModel *model = WindowManager.sharedInstance.getcurrentWindow;
+    model.homeSearchString = self.textView.text;
+    
+    TBBrowserViewController *searchVC = [TBBrowserViewController sharedInstance];
     searchVC.url = urlStr;
+    if (searchVC.webView) {
+        [searchVC.webView loadRequestWithRelativeUrl:urlStr];
+    }
     [self.navigationController pushViewController:searchVC animated:YES];
 }
 
@@ -194,8 +199,26 @@
 }
 
 - (void)jumpWindowListVC {
+    
     WindowListViewController *windowList = [[WindowListViewController alloc] init];
+    WindowModel *model = WindowManager.sharedInstance.getcurrentWindow;
+    model.isHome = YES;
+    model.imageSnap = self.view.snapshotImageAfterScreenUpdates;
+    model.homeSearchString = self.textView.text;
     [self.navigationController pushViewController:windowList animated:YES];
+}
+
+
+- (void)addObservers {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(windowsCountChangedNoti) name:WINDOWS_COUNT_CHANGED_NOTI_NAME object:nil];
+}
+
+- (void)windowsCountChangedNoti {
+    [_windowBtn setTitle:[NSString stringWithFormat:@"%zi",WindowManager.sharedInstance.windowsArray.count] forState:UIControlStateNormal];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - iCarouselDataSource - iCarouselDelegate

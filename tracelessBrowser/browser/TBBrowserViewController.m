@@ -14,6 +14,8 @@
 #import "TBScreenShotActivity.h"
 #import "TBCopyActivity.h"
 #import "TBHistoryActivity.h"
+#import "WindowListViewController.h"
+#import "WindowModel.h"
 
 @interface TBBrowserViewController ()<WKUIDelegate, WKNavigationDelegate,XYWKWebViewMessageHandleDelegate, UIGestureRecognizerDelegate, UIScrollViewDelegate, BrowserHeadBtnProtocol>
 @property (nonatomic, strong) UIProgressView  *progressView;
@@ -23,6 +25,15 @@
 @end
 
 @implementation TBBrowserViewController
+
++ (instancetype)sharedInstance {
+    static TBBrowserViewController *instance;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instance = [[TBBrowserViewController alloc] init];
+    });
+    return instance;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -62,12 +73,21 @@
     
 }
 
+//MARK: - public
+- (void)loadUrl:(WindowModel *)model {
+    if ([model.url.absoluteString isEqualToString: _webView.URL.absoluteString]) {
+        return;
+    }
+    [_webView loadRequest:[NSURLRequest requestWithURL:model.url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:20]];
+}
+
+//MARK: - private
 - (void)reloadData {
     
     [_webView loadRequest:[NSURLRequest requestWithURL:_webView.URL ?: [NSURL URLWithString:_webView.webViewRequestUrl] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:20]];
 }
 
-//MARK: gestureRecognizer
+//MARK: - gestureRecognizer
 
 - (BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)gestureRecognizer
 {
@@ -318,9 +338,21 @@
     }
 }
 
-//MARK: - head menu Delegate
 - (void)homeBtnTapped {
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    [self.navigationController  popViewControllerAnimated:YES];
+}
+
+//MARK: - head menu Delegate
+- (void)windowBtnTapped {
+    WindowListViewController *windowList = [[WindowListViewController alloc] init];
+    
+    WindowModel *model = WindowManager.sharedInstance.getcurrentWindow;
+    model.imageSnap = self.view.snapshotImage;
+    model.webView = self.webView;
+    model.url = self.webView.URL;
+    model.isHome = NO;
+
+    [self.navigationController pushViewController:windowList animated:YES];
 }
 
 // 分享
@@ -328,10 +360,10 @@
     NSArray *activityItems = [NSArray arrayWithObjects:_webView.URL, nil];
     
     UIActivityViewController *aVC = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:@[
-//        [[TBCreateNewActivity alloc] init],
-        [[TBScreenShotActivity alloc] initWithWebView:_webView],
-        [[TBCopyActivity alloc] initWithWebView:_webView],
-    ]];
+        //        [[TBCreateNewActivity alloc] init],
+                [[TBScreenShotActivity alloc] initWithWebView:_webView],
+                [[TBCopyActivity alloc] initWithWebView:_webView],
+            ]];
     aVC.excludedActivityTypes = @[UIActivityTypeAddToReadingList,UIActivityTypeCopyToPasteboard];
     aVC.completionWithItemsHandler = ^(NSString *activityType, BOOL completed, NSArray *returnedItems, NSError *activityError) //分享回调
     {

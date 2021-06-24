@@ -15,6 +15,14 @@
  *  @return 快照图片
  */
 - (UIImage *)snapshotImage;
+
+/**
+ *  给该视图或其子视图添加一个视图更新后的快照
+ *
+ *  @return 快照图片
+ */
+- (UIImage *)snapshotImageAfterScreenUpdates;
+
 /**
  *   创建一个快照并添加1 px透明边缘(反锯齿)
  *
