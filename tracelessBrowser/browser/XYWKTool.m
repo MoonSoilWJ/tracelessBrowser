@@ -78,7 +78,7 @@ static XYWKTool *_tool;
     // 跳转App Store页
     [storeVC loadProductWithParameters:dict completionBlock:^(BOOL result, NSError * _Nullable error) {
         if (error) {
-            NSLog(@"错误信息：%@",error.userInfo);
+            XYWKLog(@"错误信息：%@",error.userInfo);
         }
         else
         {
@@ -98,9 +98,9 @@ static XYWKTool *_tool;
  */
 - (void)productViewControllerDidFinish:(SKStoreProductViewController *)viewController
 {
-    NSLog(@"将要退出 App Store 页面了");
+    XYWKLog(@"将要退出 App Store 页面了");
     [viewController dismissViewControllerAnimated:YES completion:^{
-        NSLog(@"已经退出 App Store 页面完成了");
+        XYWKLog(@"已经退出 App Store 页面完成了");
     }];
 }
 

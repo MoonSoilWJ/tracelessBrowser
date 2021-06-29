@@ -16,7 +16,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
+    self.title = @"关于我们";
     self.versionLab.text = [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"];
 }
 

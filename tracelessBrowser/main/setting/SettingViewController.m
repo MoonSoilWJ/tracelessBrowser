@@ -27,7 +27,7 @@
     
     _array = @[
         @"清除缓存",
-        @"换肤中心",
+//        @"换肤中心",
         @"使用指南",
         @"关于我们"
     ];
@@ -64,17 +64,17 @@
         // 清除缓存;
             [self clearCatcheCookie];
             break;
+//        case 1:
+//            [self.navigationController pushViewController:[ChangeSkinViewController new] animated:YES];
+//            break;
         case 1:
-            [self.navigationController pushViewController:[ChangeSkinViewController new] animated:YES];
-            break;
-        case 2:
             //使用教程; pageViewController
         {
             TBUseTechViewController *use = [[TBUseTechViewController alloc] init];
             [self.navigationController pushViewController:use animated:YES];
         }
             break;
-        case 3:
+        case 2:
             //关于我们
         { TBAboutUsViewController *aboutUs = [[TBAboutUsViewController alloc] init];
             [self.navigationController pushViewController:aboutUs animated:YES];
@@ -96,18 +96,20 @@
 //MARK: private
 
 - (void)clearCatcheCookie {
+    
+    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleMedium];
+    indicator.frame = CGRectMake(ScreenWidth()/2-50, ScreenHeight()/2-50, 100, 100);
+    indicator.backgroundColor = [UIColor grayColor];
+    [indicator bezierPathRectCorner:UIRectCornerAllCorners conrnerRadius:8];
+    [self.view addSubview:indicator];
+    
+    [indicator startAnimating];
     NSSet *allType = [WKWebsiteDataStore allWebsiteDataTypes];
     [[WKWebsiteDataStore defaultDataStore] removeDataOfTypes:allType modifiedSince:[NSDate dateWithTimeIntervalSince1970:0] completionHandler:^{
+        [indicator removeFromSuperview];
         [self.view makeToast:@"清除成功"];
     }];
     
- 
-    
-//    [[WKWebsiteDataStore defaultDataStore] fetchDataRecordsOfTypes:allType completionHandler:^(NSArray<WKWebsiteDataRecord *> * _Nonnull arr) {
-//        [[WKWebsiteDataStore defaultDataStore] removeDataOfTypes:allType forDataRecords:allType completionHandler:^{
-//
-//        }];
-//    }];
 }
 
 //MARK: 横竖屏切换 delegate

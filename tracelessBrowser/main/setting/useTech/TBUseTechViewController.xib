@@ -19,38 +19,29 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="使用提示" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ajo-CP-0mF">
-                    <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="44" id="IRs-9f-WMd"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1，长按返回键，会一次性返回到主页面。" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sJ3-kc-iHU">
-                    <rect key="frame" x="20" y="111" width="376" height="24"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backBtnUse" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mzd-qy-bbZ">
-                    <rect key="frame" x="76" y="133" width="263" height="141"/>
+                    <rect key="frame" x="76" y="133" width="262" height="141"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="141" id="bTk-ew-RfW"/>
                     </constraints>
                 </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1，长按返回键，会一次性返回到主页面。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sJ3-kc-iHU">
+                    <rect key="frame" x="20" y="71" width="374" height="54"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="Mzd-qy-bbZ" firstAttribute="top" secondItem="Ajo-CP-0mF" secondAttribute="bottom" constant="45" id="BEB-ct-C3n"/>
+                <constraint firstItem="sJ3-kc-iHU" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="D6u-ee-tIW"/>
                 <constraint firstItem="Mzd-qy-bbZ" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="76" id="DR1-n3-bgx"/>
-                <constraint firstItem="Ajo-CP-0mF" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="SDf-Mu-YcP"/>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="Ajo-CP-0mF" secondAttribute="trailing" id="aLD-g7-dYN"/>
-                <constraint firstItem="Ajo-CP-0mF" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="oU8-44-KXl"/>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="Mzd-qy-bbZ" secondAttribute="trailing" constant="75" id="qUW-Yi-PZ2"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="sJ3-kc-iHU" secondAttribute="trailing" constant="20" id="YW3-ys-zG8"/>
+                <constraint firstItem="sJ3-kc-iHU" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="27" id="eSc-Ce-2io"/>
+                <constraint firstItem="Mzd-qy-bbZ" firstAttribute="top" secondItem="sJ3-kc-iHU" secondAttribute="bottom" constant="8" symbolic="YES" id="gxw-9k-oKM"/>
+                <constraint firstItem="Mzd-qy-bbZ" firstAttribute="centerX" secondItem="sJ3-kc-iHU" secondAttribute="centerX" id="lve-CE-FaU"/>
+                <constraint firstItem="Mzd-qy-bbZ" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="89" id="pXh-7c-EUy"/>
             </constraints>
             <point key="canvasLocation" x="69.565217391304358" y="76.339285714285708"/>
         </view>

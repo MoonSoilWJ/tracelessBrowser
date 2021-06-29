@@ -8,6 +8,7 @@
 #import "BrowserTransition.h"
 #import "WindowListViewController.h"
 #import "WindowManager.h"
+#import "UIImage+RTTint.h"
 
 @interface BrowserTransition () {
     BrowserTransitionType _type;
@@ -86,10 +87,15 @@
     snapshotView.layer.masksToBounds = true;
     snapshotView.contentMode = UIViewContentModeScaleAspectFill;
     [containerView addSubview:snapshotView];
+    
+    UIImageView *windowDelImageView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"window_cross"] rt_tintedImageWithColor:THEME_COLOR]];
+    windowDelImageView.frame = CGRectMake(fromVC.view.width - 30, 5, 25, 25);
+    [snapshotView addSubview:windowDelImageView];
 
     fromVC.view.alpha = 0;
     [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 usingSpringWithDamping:0.7 initialSpringVelocity:0.5 options:UIViewAnimationOptionCurveLinear animations:^{
         snapshotView.frame = frame;
+        windowDelImageView.frame = CGRectMake(frame.size.width-30, 5, 25, 25);
     } completion:^(BOOL finished) {
         fromVC.view.alpha = 1;
         [contentView removeFromSuperview];
@@ -104,42 +110,50 @@
     WindowListViewController *fromVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
 
     UIView *containerView = transitionContext.containerView;
-    [containerView addSubview:toVC.view];
     
     UICollectionView *collectionView = fromVC.collectionView;
     NSIndexPath *selectIndexPath = [NSIndexPath indexPathForItem:WindowManager.sharedInstance.currentWindowIndex inSection:0];
     UICollectionViewLayoutAttributes *att = [collectionView layoutAttributesForItemAtIndexPath:selectIndexPath];
     CGRect frame = [containerView convertRect:att.frame fromView:collectionView];
     
-    UIImageView *snapshotView = [[UIImageView alloc] initWithFrame:frame];
     UIImage *snap = [WindowManager.sharedInstance getcurrentWindow].imageSnap;
-    snapshotView.image = snap ? snap : toVC.view.snapshotImage;
-    snapshotView.contentMode = UIViewContentModeScaleAspectFill;
-    snapshotView.layer.cornerRadius = 7;
-    snapshotView.layer.masksToBounds = true;
-    [containerView addSubview:snapshotView];
     
-    toVC.view.alpha = 0;
+    UIImageView *snapshotView;
+//    UIView *backView;
+    CGPoint ori = toVC.view.center;
+    if (snap) {
+
+        snapshotView = [[UIImageView alloc] initWithFrame:frame];
+        snapshotView.image = snap;
+        snapshotView.contentMode = UIViewContentModeScaleAspectFill;
+        snapshotView.layer.cornerRadius = 7;
+        snapshotView.layer.masksToBounds = true;
+        [containerView addSubview:snapshotView];
+
+    }else {
+
+        [containerView addSubview:toVC.view];
+    
+        float scale = frame.size.width/toVC.view.width;
+        toVC.view.transform = CGAffineTransformMakeScale(scale, scale);
+        toVC.view.center = CGPointMake(frame.origin.x+frame.size.width/2, frame.origin.y+frame.size.height/2);
+    }
+    
     [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 usingSpringWithDamping:0.7 initialSpringVelocity:0.5 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        snapshotView.frame = toVC.view.frame;
+        if (snap) {
+            snapshotView.frame = toVC.view.frame;
+        }else {
+//            backView.frame = toVC.view.frame;
+            toVC.view.transform = CGAffineTransformIdentity;
+            toVC.view.center = ori;
+        }
     } completion:^(BOOL finished) {
-        toVC.view.alpha = 1;
         [snapshotView removeFromSuperview];
+//        [backView removeFromSuperview];
+        
+        [containerView addSubview:toVC.view];
         [transitionContext completeTransition:!transitionContext.transitionWasCancelled];
     }];
 }
 
-/// 新增首页
-//- (void)popToNewHomeFromWindowsListAnimation:( id <UIViewControllerContextTransitioning>)transitionContext {
-//    UIViewController *toVC = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-//    UIView *containerView = transitionContext.containerView;
-//    [containerView addSubview:toVC.view];
-//
-//    toVC.view.alpha = 0;
-//    [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 usingSpringWithDamping:0.7 initialSpringVelocity:0.5 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-//    } completion:^(BOOL finished) {
-//        toVC.view.alpha = 1;
-//        [transitionContext completeTransition:!transitionContext.transitionWasCancelled];
-//    }];
-//}
 @end

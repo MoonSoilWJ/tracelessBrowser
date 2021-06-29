@@ -18,6 +18,7 @@
 #import "WindowModel.h"
 
 @interface TBBrowserViewController ()<WKUIDelegate, WKNavigationDelegate,XYWKWebViewMessageHandleDelegate, UIGestureRecognizerDelegate, UIScrollViewDelegate, BrowserHeadBtnProtocol>
+
 @property (nonatomic, strong) UIProgressView  *progressView;
 @property (nonatomic, strong) NSTimer *progressATimer;
 @property (nonatomic, strong) NSTimer *progressBTimer;
@@ -35,56 +36,50 @@
     return instance;
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [WindowManager.sharedInstance getcurrentWindow].isHome = NO;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.fd_prefersNavigationBarHidden = YES;
     self.fd_interactivePopMaxAllowedInitialDistanceToLeftEdge = 30;
     self.navigationController.fd_fullscreenPopGestureRecognizer.delegate = self;
+    self.view.backgroundColor = UIColor.whiteColor;
     
-    // 直接自定义WebView为self.view
     WKWebViewConfiguration *config = [WKWebViewConfiguration new];
-    _webView = [[XYWKWebView alloc] initWithFrame:CGRectMake(0, STATUS_BAR_HEIGHT + 44, ScreenWidth(), ScreenHeight() - STATUS_BAR_HEIGHT - 44) configuration:config];
-    [config.userContentController addScriptMessageHandler:_webView name:_webViewAppName];
-    _webView.xy_messageHandlerDelegate = self;
-    _webView.navigationDelegate = self;
-    _webView.UIDelegate = self;
-    _webView.scrollView.delegate = self;
-    [self.view addSubview:_webView];
+    self.webView = [[XYWKWebView alloc] initWithFrame:CGRectMake(0, STATUS_BAR_HEIGHT + 44, ScreenWidth(), ScreenHeight() - STATUS_BAR_HEIGHT - 44) configuration:config];
+    [config.userContentController addScriptMessageHandler:self.webView name:_webViewAppName];
+    self.webView.xy_messageHandlerDelegate = self;
+    self.webView.navigationDelegate = self;
+    self.webView.UIDelegate = self;
+    self.webView.scrollView.delegate = self;
     
-    [_webView.failView.confirmButton addTarget:self action:@selector(reloadData) forControlEvents:UIControlEventTouchUpInside];
+    [self.webView.failView.confirmButton addTarget:self action:@selector(reloadData) forControlEvents:UIControlEventTouchUpInside];
     
     [self.webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:NULL];
     [self.webView loadRequestWithRelativeUrl:self.url];
-    
-    self.view.backgroundColor = UIColor.whiteColor;
+    [self.view addSubview:self.webView];
     
     _head = [[TBBrowserHeaderView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth(), 44 + STATUS_BAR_HEIGHT)];
     _head.delegate = self;
     [self.view addSubview:_head];
-    
-//    [self initSkin];
 }
 
 - (void)dealloc {
-    XYWKLog(@"dealloc --- %@",NSStringFromClass([self class]));
-    
     [self.webView removeObserver:self forKeyPath:@"estimatedProgress"];
-    
+    XYWKLog(@"dealloc --- %@",NSStringFromClass([self class]));
 }
 
 //MARK: - public
-- (void)loadUrl:(WindowModel *)model {
-    if ([model.url.absoluteString isEqualToString: _webView.URL.absoluteString]) {
-        return;
-    }
-    [_webView loadRequest:[NSURLRequest requestWithURL:model.url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:20]];
-}
 
 //MARK: - private
+
 - (void)reloadData {
     
-    [_webView loadRequest:[NSURLRequest requestWithURL:_webView.URL ?: [NSURL URLWithString:_webView.webViewRequestUrl] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:20]];
+    [self.webView loadRequest:[NSURLRequest requestWithURL:self.webView.URL ?: [NSURL URLWithString:self.webView.webViewRequestUrl] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:20]];
 }
 
 //MARK: - gestureRecognizer
@@ -202,12 +197,8 @@
                 [self progressStepA];
             }
         }
-        else{
-            [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
-        }
-    }
-    else {
-        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }else {
+        
     }
 }
 
@@ -224,7 +215,8 @@
     XYWKLog(@"%s：%@", __FUNCTION__,webView.URL);
     [self judgeCanSwipeBack];
     
-    _head.titleLab.text = [[webView.URL.absoluteString stringByReplacingOccurrencesOfString:[TBEnginsManager currentEngineUrl] withString:@""] stringByRemovingPercentEncoding];
+    _head.titleLab.text = [[webView.URL.absoluteString  stringByRemovingPercentEncoding] stringByReplacingOccurrencesOfString:[TBEnginsManager currentEngineUrl] withString:@""];
+
 }
 
 /**
@@ -237,12 +229,10 @@
     XYWKLog(@"%s", __FUNCTION__);
     [self judgeCanSwipeBack];
     
-    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-    [userDefault setObject:[webView.URL.absoluteString stringByRemovingPercentEncoding] forKey:@"browser"];
-//
-//    [webView evaluateJavaScript:@"window.scrollTo(0,500)" completionHandler:^(id _Nullable obj, NSError * _Nullable error) {
-//
-//    }];
+    [WindowManager.sharedInstance getcurrentWindow].url = webView.URL;
+//    [WindowManager.sharedInstance getcurrentWindow].webView = webView;
+
+//    [WindowManager.sharedInstance archiveWindows];
 }
 /**
  *  页面加载完成之后调用
@@ -256,7 +246,7 @@
     XYWKLog(@"%s 这个页面加载完成了",__func__);
     [self judgeCanSwipeBack];
     
-    _webView.failView.hidden = YES;
+    self.webView.failView.hidden = YES;
 }
 
 /**
@@ -279,7 +269,7 @@
     if (error.code == -1001 ||
         error.code == -1003 ||
         error.code == -1009) {
-        _webView.failView.hidden = NO;
+        self.webView.failView.hidden = NO;
     }
 }
 
@@ -309,7 +299,6 @@
 }
 
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
-    NSLog(@"navigationAction = %@, request = %@",navigationAction,navigationAction.request.URL);
     [self judgeCanSwipeBack];
     //返回+2的枚举值,禁止universal link
     decisionHandler(WKNavigationActionPolicyAllow + 2);
@@ -326,9 +315,11 @@
 #pragma mark - scrollview delegate
 
 //- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-//    NSLog(@"y:%f",scrollView.contentOffset.y);
+//    XYWKLog(@"y:%f",scrollView.contentOffset.y);
 //    [[NSUserDefaults standardUserDefaults] setFloat:scrollView.contentOffset.y forKey:@"browserY"];
 //}
+
+//MARK: - head menu Delegate
 
 - (void)backBtnTapped {
     if ([self.webView canGoBack]) {
@@ -342,27 +333,31 @@
     [self.navigationController  popViewControllerAnimated:YES];
 }
 
-//MARK: - head menu Delegate
 - (void)windowBtnTapped {
-    WindowListViewController *windowList = [[WindowListViewController alloc] init];
     
-    WindowModel *model = WindowManager.sharedInstance.getcurrentWindow;
-    model.imageSnap = self.view.snapshotImage;
-    model.webView = self.webView;
-    model.url = self.webView.URL;
-    model.isHome = NO;
-
+    [self.webView stopLoading];
+    
+    WindowListViewController *windowList = [[WindowListViewController alloc] init];
     [self.navigationController pushViewController:windowList animated:YES];
+    
+    UIImage *image = self.view.snapshotImage;
+    WindowManager.sharedInstance.getcurrentWindow.imageSnap = image;
+    WindowManager.sharedInstance.getcurrentWindow.browserVC = self;
+    [self removeFromParentViewController];
+}
+
+- (void)menuRefreshAction {
+    [self.webView reload];
 }
 
 // 分享
 - (void)menuBtnTapped {
-    NSArray *activityItems = [NSArray arrayWithObjects:_webView.URL, nil];
+    NSArray *activityItems = [NSArray arrayWithObjects:self.webView.URL, nil];
     
     UIActivityViewController *aVC = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:@[
         //        [[TBCreateNewActivity alloc] init],
-                [[TBScreenShotActivity alloc] initWithWebView:_webView],
-                [[TBCopyActivity alloc] initWithWebView:_webView],
+                [[TBScreenShotActivity alloc] initWithWebView:self.webView],
+                [[TBCopyActivity alloc] initWithWebView:self.webView],
             ]];
     aVC.excludedActivityTypes = @[UIActivityTypeAddToReadingList,UIActivityTypeCopyToPasteboard];
     aVC.completionWithItemsHandler = ^(NSString *activityType, BOOL completed, NSArray *returnedItems, NSError *activityError) //分享回调
@@ -513,30 +508,23 @@
     return nil;
 }
 
-- (BOOL)webView:(WKWebView *)webView shouldPreviewElement:(WKPreviewElementInfo *)elementInfo {
+- (BOOL)webView:(WKWebView *)webView shouldPreviewElement:(WKContextMenuElementInfo *)elementInfo {
     return NO;
 }
 
+
 //MARK: device oriention changed
 - (void)deviceOrientionChanged:(UIDeviceOrientation)deviceOrientation {
-    _webView.frame = CGRectMake(0, STATUS_BAR_HEIGHT + 44, ScreenWidth(), ScreenHeight() - STATUS_BAR_HEIGHT - 44);
+    self.webView.frame = CGRectMake(0, STATUS_BAR_HEIGHT + 44, ScreenWidth(), ScreenHeight() - STATUS_BAR_HEIGHT - 44);
     _progressView.frame = CGRectMake(0, STATUS_BAR_HEIGHT + 44, XYWKScreenW, 1);
     
-    _webView.failView.frame = _webView.bounds;
-    [_webView.failView deviceOrientionChanged:deviceOrientation];
+    self.webView.failView.frame = self.webView.bounds;
+    [self.webView.failView deviceOrientionChanged:deviceOrientation];
     
     _head.frame = CGRectMake(0, 0, ScreenWidth(), 44 + STATUS_BAR_HEIGHT);
     [_head deviceOrientionChanged:deviceOrientation];
 }
 
-- (void)didMoveToParentViewController:(UIViewController *)parent {
-    [super didMoveToParentViewController:parent];
-    
-    if (!parent) {// 离开
-        NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-        [userDefault removeObjectForKey:@"browser"];
-    }
-}
 //
 ////MARK: 换肤通知
 //- (void)skinDidChanged:(NSDictionary *)info {

@@ -175,7 +175,7 @@
     
     if (panGesture.state == UIGestureRecognizerStateEnded) {
         CGPoint velocity = [panGesture velocityInView:self.whiteView];
-        NSLog(@"velocity.y=%f",velocity.y);
+        XYWKLog(@"velocity.y=%f",velocity.y);
         
         self.scrollView.panGestureRecognizer.enabled = YES;
         // 结束时的速度>0 滑动距离> 5 且UIScrollView滑动到最顶部

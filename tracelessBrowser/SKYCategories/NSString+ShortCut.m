@@ -316,7 +316,7 @@ CCOptions _padding = kCCOptionPKCS7Padding;
             *pkcs7 = kCCOptionPKCS7Padding;
         }
     } else if(encryptOrDecrypt != kCCDecrypt) {
-        NSLog(@"Invalid CCOperation parameter [%d] for cipher context.", *pkcs7 );
+        XYWKLog(@"Invalid CCOperation parameter [%d] for cipher context.", *pkcs7 );
     }
     
     // Create and Initialize the crypto reference.

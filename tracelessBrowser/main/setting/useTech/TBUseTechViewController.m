@@ -15,6 +15,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.title = @"使用教程";
     // Do any additional setup after loading the view from its nib.
 }
 

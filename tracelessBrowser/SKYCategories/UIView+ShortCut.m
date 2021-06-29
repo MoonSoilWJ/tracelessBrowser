@@ -23,7 +23,7 @@ static char kDTActionHandlerLongPressGestureKey;
 ///////////////////////////////////////////////////////////////
 - (UIImage *)snapshotImage
 {
-    UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, 0.0);
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, 1);
     [self.layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage *snap = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
@@ -32,7 +32,7 @@ static char kDTActionHandlerLongPressGestureKey;
 
 - (UIImage *)snapshotImageAfterScreenUpdates{
     CGRect rect = CGRectMake(0, 0, self.width, self.height);
-    UIGraphicsBeginImageContextWithOptions(self.bounds.size, false, UIScreen.mainScreen.scale);
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, false, 1);
     [self drawViewHierarchyInRect:rect afterScreenUpdates:YES];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();

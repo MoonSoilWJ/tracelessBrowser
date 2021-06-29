@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)homeBtnTapped;
 
+- (void)menuRefreshAction;
+
 - (void)menuBtnTapped;
 
 - (void)searchTapped:(NSString *)urlStr;

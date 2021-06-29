@@ -32,10 +32,13 @@
 
 @implementation ViewController
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    XYWKLog(@"viewController-viewDidAppear\n");
     _textView.text = [WindowManager.sharedInstance getcurrentWindow].homeSearchString;
+    
+    [WindowManager.sharedInstance getcurrentWindow].isHome = YES;
+//    [WindowManager.sharedInstance archiveWindows];
 }
 
 - (void)viewDidLoad {
@@ -106,8 +109,6 @@
     
     [self addObservers];
     
-    [self initSkin];
-
 }
 
 - (TBSearchInputView *)pop {
@@ -177,14 +178,17 @@
 }
 
 - (void)jumpbrowserVC:(NSString *)urlStr {
+    
     WindowModel *model = WindowManager.sharedInstance.getcurrentWindow;
     model.homeSearchString = self.textView.text;
     
-    TBBrowserViewController *searchVC = [TBBrowserViewController sharedInstance];
-    searchVC.url = urlStr;
-    if (searchVC.webView) {
-        [searchVC.webView loadRequestWithRelativeUrl:urlStr];
-    }
+    TBBrowserViewController *searchVC ;
+//    if (model.browserVC) {
+//        searchVC = model.browserVC;
+//    }else {
+        searchVC = [TBBrowserViewController new];
+        searchVC.url = urlStr;
+//    }
     [self.navigationController pushViewController:searchVC animated:YES];
 }
 
@@ -202,8 +206,10 @@
     
     WindowListViewController *windowList = [[WindowListViewController alloc] init];
     WindowModel *model = WindowManager.sharedInstance.getcurrentWindow;
-    model.isHome = YES;
-    model.imageSnap = self.view.snapshotImageAfterScreenUpdates;
+    UIImage *image = self.view.snapshotImageAfterScreenUpdates;
+    model.imageSnap = image;
+    XYWKLog(@"%@",NSHomeDirectory());
+    
     model.homeSearchString = self.textView.text;
     [self.navigationController pushViewController:windowList animated:YES];
 }
@@ -301,7 +307,7 @@
 
 //MARK: - deviceOrientionChangedProtocol
 - (void)deviceOrientionChanged:(UIDeviceOrientation)deviceOrientation {
-    [super deviceOrientionChanged:deviceOrientation];
+//    [super deviceOrientionChanged:deviceOrientation];
     
     self.backgroundView.frame  = self.view.bounds;
     self.myCarousel.frame = CGRectMake(0, STATUS_BAR_HEIGHT + 20, ScreenWidth(), 80);

@@ -8,20 +8,19 @@
 #import <UIKit/UIKit.h>
 #import "XYWKWebView.h"
 #import "XYScriptMessage.h"
-//#import "BaseViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @class WindowModel;
 @interface TBBrowserViewController : UIViewController
 
-@property (nonatomic, strong) XYWKWebView *webView;
+@property (nonatomic, strong, nullable) XYWKWebView *webView;
 // 完整url
 @property (nonatomic, copy) NSString *url;
 //// 用户输入的文字内容，头部回显使用
 //@property (nonatomic, copy) NSString *userSearchText;
 
-@property (nonatomic, assign) CGFloat contentOffsetY;
+//@property (nonatomic, assign) CGFloat contentOffsetY;
 /**
  * JS & App 协议的交互名称
  * 用于子类化自由设置,默认 @“webViewApp”
@@ -30,9 +29,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, retain) WindowModel *windowModel;
 
-+(instancetype)sharedInstance;
+//+(instancetype)sharedInstance;
 
-- (void)loadUrl:(WindowModel *)model;
+//- (void)loadUrl:(WindowModel *)model;
+
+- (void)replaceWebViewWithWebView:(XYWKWebView *)web;
 
 @end
 

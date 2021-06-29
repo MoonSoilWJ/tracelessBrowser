@@ -55,7 +55,7 @@
             [PHAssetChangeRequest creationRequestForAssetFromImage:image];
         } completionHandler:^(BOOL success, NSError * _Nullable error) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                NSLog(@"success = %d, error = %@", success, error);
+                XYWKLog(@"success = %d, error = %@", success, error);
                 [self->_web.viewController.view  makeToast:@"保存成功，请到相册中查看"];
             });
         }];

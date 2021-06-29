@@ -13,13 +13,6 @@
 #define XYWKiPhoneX (XYWKScreenH >= 812) // iPhone X height
 #define XYWKNavHeight (XYWKiPhoneX ? (88.f) : (64.f))  // statusBarH + TopBarH
 
-#ifdef DEBUG
-#define XYWKLog(...) NSLog( @"< %s:(第%d行) > %@",__func__ , __LINE__, [NSString stringWithFormat:__VA_ARGS__] )
-#define XYWKFunc DLog(@"");
-#else
-#define XYWKLog( s, ... )
-#define XYWKFunc;
-#endif
 
 #import <WebKit/WebKit.h>
 #import "TBNoDataView.h"
@@ -89,5 +82,7 @@
  *  @param handler  回调block
  */
 - (void)callJS:(nonnull NSString *)jsMethod handler:(nullable void(^)(__nullable id response))handler;
+
+- (void)remove;
 
 @end

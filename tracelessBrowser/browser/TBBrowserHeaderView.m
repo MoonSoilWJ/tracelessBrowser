@@ -17,6 +17,7 @@
     CAGradientLayer *_gradientLayer;
     UIButton *_backBtn;
     UIButton *_homeBtn;
+    UIButton *_menuRefreshBtn;
     TBSearchPopView *_pop;
 }
 
@@ -65,14 +66,21 @@
     [_homeBtn addTarget:self action:@selector(windowAction) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_homeBtn];
     
+    UIImage *menuRefresh = [UIImage imageNamed:@"menu_refresh"];
+    menuRefresh = [menuRefresh rt_tintedImageWithColor:THEME_COLOR];
+    _menuRefreshBtn = [UIButton btnWithBgImg:menuRefresh];
+    _menuRefreshBtn.frame = CGRectMake(ScreenWidth()-45-42.5, 7.5 + STATUS_BAR_HEIGHT, 20, 20);
+    [_menuRefreshBtn addTarget:self action:@selector(menuRefreshAction) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:_menuRefreshBtn];
+    
     UIImage *menu = [UIImage imageNamed:@"toolBar_menu"];
     menu = [menu rt_tintedImageWithColor:THEME_COLOR];
     _menuBtn = [UIButton btnWithBgImg:menu];
-    _menuBtn.frame = CGRectMake(ScreenWidth()-20-30, 5 + STATUS_BAR_HEIGHT, 25, 25);
+    _menuBtn.frame = CGRectMake(ScreenWidth()-20-25, 5 + STATUS_BAR_HEIGHT, 25, 25);
     [self addSubview:_menuBtn];
     [_menuBtn addTarget:self action:@selector(menuAction) forControlEvents:UIControlEventTouchUpInside];
     
-    _titleLab = [[UILabel alloc] initWithFrame:CGRectMake(_homeBtn.right + 5, STATUS_BAR_HEIGHT + 2, _menuBtn.left - _homeBtn.right - 0 - 20 , 34)];
+    _titleLab = [[UILabel alloc] initWithFrame:CGRectMake(_homeBtn.right + 5, STATUS_BAR_HEIGHT + 2, _menuRefreshBtn.left - _homeBtn.right - 0 - 10 , 34)];
     _titleLab.textAlignment = NSTextAlignmentCenter;
     _titleLab.font = [UIFont systemFontOfSize:16];
 //    _titleLab.numberOfLines = 0;
@@ -127,6 +135,12 @@
     }
 }
 
+- (void)menuRefreshAction {
+    if ([self.delegate respondsToSelector:@selector(menuRefreshAction)]) {
+        [self.delegate menuRefreshAction];
+    }
+}
+
 - (void)menuAction {
     if ([self.delegate respondsToSelector:@selector(menuBtnTapped)]) {
         [self.delegate menuBtnTapped];
@@ -176,7 +190,8 @@
     _backBtn.frame = CGRectMake(20, 5 + STATUS_BAR_HEIGHT, 26, 26);
     _homeBtn.frame = CGRectMake(20 + 45, 5.5 + STATUS_BAR_HEIGHT, 25, 25);
     _menuBtn.frame = CGRectMake(ScreenWidth()-20-30, 5 + STATUS_BAR_HEIGHT, 25, 25);
-    _titleLab.frame = CGRectMake(_homeBtn.right + 20, STATUS_BAR_HEIGHT + 2, _menuBtn.left - _homeBtn.right - 20 - 20 , 34);
+    _menuRefreshBtn.frame = CGRectMake(ScreenWidth()-45-42.5, 7.5 + STATUS_BAR_HEIGHT, 20, 20);
+    _titleLab.frame = CGRectMake(_homeBtn.right + 10, STATUS_BAR_HEIGHT + 2, _menuRefreshBtn.left - _homeBtn.right - 20 , 34);
     
     self.pop.frame = UIScreen.mainScreen.bounds;
     [self.pop deviceOrientionChanged:deviceOriention];

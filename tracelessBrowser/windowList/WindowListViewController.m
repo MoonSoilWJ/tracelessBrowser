@@ -12,6 +12,7 @@
 #import "UIButton+TB.h"
 #import "UIImage+RTTint.h"
 #import "WindowListAddNewCell.h"
+#import "UIViewController+DeviceOriention.h"
 
 static NSString *cellId = @"windowListCell";
 static NSString *addNewCellId = @"WindowListAddNewCell";
@@ -52,7 +53,7 @@ static NSString *addNewCellId = @"WindowListAddNewCell";
     flowLayout.itemSize = CGSizeMake(itemWidth, 251);
     flowLayout.minimumLineSpacing = margin;
     flowLayout.minimumInteritemSpacing = margin;
-    flowLayout.sectionInset = UIEdgeInsetsMake(1, margin*3.0/2.0, 0, margin*3.0/2.0);
+    flowLayout.sectionInset = UIEdgeInsetsMake(margin, margin*3.0/2.0, margin, margin*3.0/2.0);
     
     [self getWindows];
     
@@ -86,6 +87,7 @@ static NSString *addNewCellId = @"WindowListAddNewCell";
     if (indexPath.item == _windows.count) { //addNew
         [WindowManager.sharedInstance addNewWindow];
         WindowManager.sharedInstance.getcurrentWindow.windowOffSet = collectionView.contentOffset;
+//        [WindowManager.sharedInstance archiveWindows];
         [self.navigationController popToRootViewControllerAnimated:YES];
         return;
     }
@@ -93,21 +95,27 @@ static NSString *addNewCellId = @"WindowListAddNewCell";
     WindowModel *model = _windows[indexPath.row];
     model.windowOffSet = collectionView.contentOffset;
     WindowManager.sharedInstance.currentWindowIndex = indexPath.row;
-    
+//    [WindowManager.sharedInstance archiveWindows];
     if (model.isHome) {
         [self.navigationController popToRootViewControllerAnimated:YES];
     }else {
         
-        TBBrowserViewController *browser = [TBBrowserViewController sharedInstance];
-        NSMutableArray *viewControllers = self.navigationController.viewControllers.mutableCopy;
-        if ([viewControllers containsObject:browser]) {
-            // 从浏览页过来的
+        TBBrowserViewController *browser;
+        if (model.browserVC) {
+            browser = model.browserVC;
         }else {
+            browser = [TBBrowserViewController new];
+            browser.url = model.url.absoluteString;
+        }
+        
+        NSMutableArray *viewControllers = self.navigationController.viewControllers.mutableCopy;
+//        if ([viewControllers containsObject:browser]) {
+//            // 从浏览页过来的
+//        }else {
             //从首页过来的
             [viewControllers insertObject:browser atIndex:viewControllers.count-1];
             self.navigationController.viewControllers = viewControllers;
-        }
-        [browser loadUrl:model];
+//        }
         [self.navigationController popViewControllerAnimated:YES];
     }
 }
@@ -119,7 +127,20 @@ static NSString *addNewCellId = @"WindowListAddNewCell";
     }
     WindowListCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
     cell.model = _windows[indexPath.row];
+    __weak typeof(self) ws = self;
+    cell.deleteBlock = ^{
+        [collectionView performBatchUpdates:^{
+            [WindowManager.sharedInstance deleteWindow:ws.windows[indexPath.item]];
+            [collectionView deleteItemsAtIndexPaths:@[indexPath] ];
+        } completion:^(BOOL finished) {
+            [collectionView reloadData];
+        }];
+    };
     return cell;
+}
+
+- (void)deviceOrientionChanged:(UIDeviceOrientation)deviceOrientation {
+    _collectionView.frame = CGRectMake(0, 0, ScreenWidth(), ScreenHeight());
 }
 
 @end

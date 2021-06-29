@@ -24,12 +24,11 @@
     ViewController *vc = [[ViewController alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
     
-    NSString *urlString = [[NSUserDefaults standardUserDefaults] objectForKey:@"browser"];
-    CGFloat offsetY = [[NSUserDefaults standardUserDefaults] floatForKey:@"browserY"];
-    if (urlString) {
-        TBBrowserViewController *searchVC = [TBBrowserViewController sharedInstance];
+
+    if (![WindowManager.sharedInstance getcurrentWindow].isHome) {
+        NSString *urlString = [WindowManager.sharedInstance getcurrentWindow].url.absoluteString;
+        TBBrowserViewController *searchVC = [TBBrowserViewController new];
         searchVC.url = urlString;
-        searchVC.contentOffsetY = offsetY;
         [nav pushViewController:searchVC animated:NO];
     }
     
@@ -44,6 +43,7 @@
     // This occurs shortly after the scene enters the background, or when its session is discarded.
     // Release any resources associated with this scene that can be re-created the next time the scene connects.
     // The scene may re-connect later, as its session was not necessarily discarded (see `application:didDiscardSceneSessions` instead).
+    [WindowManager.sharedInstance archiveWindows];
 }
 
 
@@ -56,6 +56,7 @@
 - (void)sceneWillResignActive:(UIScene *)scene {
     // Called when the scene will move from an active state to an inactive state.
     // This may occur due to temporary interruptions (ex. an incoming phone call).
+    [WindowManager.sharedInstance archiveWindows];
 }
 
 

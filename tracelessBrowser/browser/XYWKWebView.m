@@ -219,5 +219,8 @@
     }];
 }
 
-
+- (void)remove {
+    [self removeObserver:self.viewController forKeyPath:@"estimatedProgress"];
+    [self removeFromSuperview];
+}
 @end

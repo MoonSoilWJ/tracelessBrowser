@@ -9,9 +9,9 @@
 #import <WebKit/WebKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
-
-@interface WindowModel : NSObject
-@property (nonatomic, retain, nullable) WKWebView *webView;
+@class TBBrowserViewController;
+@interface WindowModel : NSObject <NSSecureCoding>
+@property (nonatomic, retain, nullable) TBBrowserViewController *browserVC;
 @property (nonatomic, retain, nullable) NSURL *url;
 @property (nonatomic, retain) UIImage *imageSnap;
 

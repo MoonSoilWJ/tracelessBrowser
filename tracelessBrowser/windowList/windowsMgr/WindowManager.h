@@ -22,6 +22,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)addNewWindow;
 
+- (void)deleteWindow:(WindowModel *)model;
+
+- (void)archiveWindows;
+
 @end
 
 NS_ASSUME_NONNULL_END

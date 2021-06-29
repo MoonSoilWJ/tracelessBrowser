@@ -5,11 +5,11 @@
 //  Created by 杜文杰 on 2021/6/21.
 //
 
-#import "BaseViewController.h"
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TBUseTechViewController : BaseViewController
+@interface TBUseTechViewController : UIViewController
 
 @end
 

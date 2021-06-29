@@ -28,7 +28,7 @@
         UIImage *windowDel = [UIImage imageNamed:@"window_cross"];
         windowDel = [windowDel rt_tintedImageWithColor:THEME_COLOR];
         UIButton *windowDelBtn = [UIButton btnWithBgImg:windowDel];
-        windowDelBtn.frame = CGRectMake(frame.size.width - 20 - 30, 5, 25, 25);
+        windowDelBtn.frame = CGRectMake(frame.size.width - 30, 5, 25, 25);
         [windowDelBtn addTarget:self action:@selector(windowDelAction) forControlEvents:UIControlEventTouchUpInside];
         [self.contentView addSubview:windowDelBtn];
     }
