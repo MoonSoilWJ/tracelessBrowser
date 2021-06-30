@@ -7,6 +7,12 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import <AppTrackingTransparency/AppTrackingTransparency.h>
+#import <AdSupport/AdSupport.h>
+#ifdef FREE
+#import <BUAdSDK/BUAdSDKManager.h>
+#else
+#endif
 
 @interface AppDelegate ()
 
@@ -14,9 +20,26 @@
 
 @implementation AppDelegate
 
+- (void)requestIDFA {
+    if (@available(iOS 14, *)) {
+        [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
+            // Tracking authorization completed. Start loading ads here.
+            // [self loadAd];
+        }];
+    } else {
+        // Fallback on earlier versions
+    }
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+#ifdef FREE
+    [BUAdSDKManager setAppID:@"5186009"];
+    [BUAdSDKManager setLoglevel:BUAdSDKLogLevelDebug];
+    [BUAdSDKManager setIsPaidApp:NO];
+#else
+#endif
     return YES;
 }
 

@@ -26,7 +26,7 @@
 @property(nonatomic, retain) UIView *whiteView;
 @property(nonatomic, retain) TBSearchInputView *pop;
 @property(nonatomic, retain) UIButton *goButton;
-@property(nonatomic, retain) CALayer *layer;
+
 @property (nonatomic, strong) iCarousel *myCarousel;
 @end
 
@@ -35,10 +35,14 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     XYWKLog(@"viewController-viewDidAppear\n");
-    _textView.text = [WindowManager.sharedInstance getcurrentWindow].homeSearchString;
     
     [WindowManager.sharedInstance getcurrentWindow].isHome = YES;
 //    [WindowManager.sharedInstance archiveWindows];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    _textView.text = [WindowManager.sharedInstance getcurrentWindow].homeSearchString;
 }
 
 - (void)viewDidLoad {
@@ -53,7 +57,8 @@
 
     [self.myCarousel setCurrentItemIndex:[TBEnginsManager currentEngineIndex]];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     
     [self.backgroundView addSubview:self.pop.whiteView];
  
@@ -71,27 +76,28 @@
     endEditTap.direction = UISwipeGestureRecognizerDirectionDown | UISwipeGestureRecognizerDirectionUp ;
     [self.textView addGestureRecognizer:endEditTap];
     
-    self.goButton = [[UIButton alloc] initWithFrame:CGRectMake(ScreenWidth()/2 - 25, ScreenHeight() - TAB_BAR_HEIGHT - self.view.height/7, 60, 60)];
-    self.goButton.backgroundColor = UIColor.whiteColor;
-    [self.goButton setImage:[UIImage imageNamed:@"logo_alpha"] forState:UIControlStateNormal];
-//    [self.goButton setImage:[UIImage imageNamed:@"sou_btn"] forState:UIControlStateHighlighted];
-    self.goButton.titleLabel.font = [UIFont systemFontOfSize:22];
-    [self.goButton bezierPathRectCorner:UIRectCornerAllCorners conrnerRadius:10];
-    [self.goButton addTarget:self action:@selector(goWebView) forControlEvents:UIControlEventTouchUpInside];
-   
-    self.layer = [CALayer layer];
-    self.layer.frame = self.goButton.frame;
-    self.layer.backgroundColor = THEME_COLOR.CGColor;
-    self.layer.shadowOffset = CGSizeMake(0, 3);
-    self.layer.shadowOpacity = 0.3;
-    self.layer.cornerRadius = 10;
-    [self.view.layer addSublayer:self.layer];
+    self.goButton = [[UIButton alloc] initWithFrame:CGRectMake(ScreenWidth()/2 - 40, ScreenHeight() - TAB_BAR_HEIGHT - self.view.height/7, 80, 80)];
     [self.view addSubview:self.goButton];
+    
+    UIButton *goButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, 60, 60)];
+    goButton.backgroundColor = UIColor.whiteColor;
+    [goButton setImage:[UIImage imageNamed:@"logo_alpha"] forState:UIControlStateNormal];
+    goButton.titleLabel.font = [UIFont systemFontOfSize:22];
+    [goButton bezierPathRectCorner:UIRectCornerAllCorners conrnerRadius:10];
+    [goButton addTarget:self action:@selector(goWebView) forControlEvents:UIControlEventTouchUpInside];
+   
+    CALayer *layer = [CALayer layer];
+    layer.frame = goButton.frame;
+    layer.backgroundColor = THEME_COLOR.CGColor;
+    layer.shadowOffset = CGSizeMake(0, 3);
+    layer.shadowOpacity = 0.3;
+    layer.cornerRadius = 10;
+    [self.goButton.layer addSublayer:layer];
+    [self.goButton addSubview:goButton];
     
     _settingBtn = [[UIButton alloc] initWithFrame:CGRectMake(20, ScreenHeight() - HOME_INDICATOR_HEIGHT - 50, 25, 25)];
     UIImage *image = [[UIImage imageNamed:@"menu_clothes"] rt_tintedImageWithColor:THEME_COLOR];
     [_settingBtn setImage:image forState:UIControlStateNormal];
-//    [settingBtn setImage:[UIImage imageNamed:@"circleCloseButton"] forState:UIControlStateHighlighted];
     _settingBtn.titleLabel.font = [UIFont systemFontOfSize:22];
     [_settingBtn addTarget:self action:@selector(settingAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_settingBtn];
@@ -139,7 +145,34 @@
 }
 
 
-- (void)keyboardWillShow {
+- (void) keyboardWillShow:(NSNotification *)note {
+
+    NSDictionary *keyboardAnimationDetail = [note userInfo];
+    UIViewAnimationCurve animationCurve = [keyboardAnimationDetail[UIKeyboardAnimationCurveUserInfoKey] integerValue];
+    CGFloat duration = [keyboardAnimationDetail[UIKeyboardAnimationDurationUserInfoKey] floatValue];
+
+    NSValue* keyboardFrameBegin = [keyboardAnimationDetail valueForKey:UIKeyboardBoundsUserInfoKey];
+    CGRect keyboardFrameBeginRect = [keyboardFrameBegin CGRectValue];
+
+    UIViewAnimationOptions options = (animationCurve << 16);
+
+    [UIView animateWithDuration:duration delay:0.0 options:options animations:^{
+        self.goButton.frame = CGRectMake(ScreenWidth()/2 - 40, ScreenHeight() - keyboardFrameBeginRect.size.height -80 , 80, 80);
+    } completion:nil];
+
+}
+
+
+- (void)keyboardWillHide:(NSNotification *)note {
+    
+    NSDictionary *keyboardAnimationDetail = [note userInfo];
+    UIViewAnimationCurve animationCurve = [keyboardAnimationDetail[UIKeyboardAnimationCurveUserInfoKey] integerValue];
+    CGFloat duration = [keyboardAnimationDetail[UIKeyboardAnimationDurationUserInfoKey] floatValue];
+
+    UIViewAnimationOptions options = (animationCurve << 16);
+    [UIView animateWithDuration:duration delay:0.0 options:options animations:^{
+        self.goButton.frame = CGRectMake(ScreenWidth()/2 - 40, ScreenHeight() - TAB_BAR_HEIGHT - self.view.height/7, 80, 80);
+    } completion:nil];
 
 }
 
@@ -311,8 +344,7 @@
     
     self.backgroundView.frame  = self.view.bounds;
     self.myCarousel.frame = CGRectMake(0, STATUS_BAR_HEIGHT + 20, ScreenWidth(), 80);
-    self.goButton.frame = CGRectMake(ScreenWidth()/2 - 25, ScreenHeight() - TAB_BAR_HEIGHT - self.view.height/7, 60, 60);
-    self.layer.frame = self.goButton.frame;
+    self.goButton.frame = CGRectMake(ScreenWidth()/2 - 40, ScreenHeight() - TAB_BAR_HEIGHT - self.view.height/7, 80, 80);
     self.pop.frame = UIScreen.mainScreen.bounds;
     [self.pop deviceOrientionChanged:deviceOrientation];
     

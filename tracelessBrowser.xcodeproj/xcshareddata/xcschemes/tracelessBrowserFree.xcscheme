@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3B2386C2268ACD5000BF09E3"
-               BuildableName = "tracelessBrowser.app"
-               BlueprintName = "tracelessBrowser"
+               BlueprintIdentifier = "3B5EB644258B4FBB000F2A10"
+               BuildableName = "tracelessBrowserFree.app"
+               BlueprintName = "tracelessBrowserFree"
                ReferencedContainer = "container:tracelessBrowser.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -44,9 +44,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3B2386C2268ACD5000BF09E3"
-            BuildableName = "tracelessBrowser.app"
-            BlueprintName = "tracelessBrowser"
+            BlueprintIdentifier = "3B5EB644258B4FBB000F2A10"
+            BuildableName = "tracelessBrowserFree.app"
+            BlueprintName = "tracelessBrowserFree"
             ReferencedContainer = "container:tracelessBrowser.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -61,9 +61,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3B2386C2268ACD5000BF09E3"
-            BuildableName = "tracelessBrowser.app"
-            BlueprintName = "tracelessBrowser"
+            BlueprintIdentifier = "3B5EB644258B4FBB000F2A10"
+            BuildableName = "tracelessBrowserFree.app"
+            BlueprintName = "tracelessBrowserFree"
             ReferencedContainer = "container:tracelessBrowser.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
