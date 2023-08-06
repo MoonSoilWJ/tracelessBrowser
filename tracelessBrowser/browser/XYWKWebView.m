@@ -47,7 +47,7 @@
         _failView = [[TBNoDataView alloc] initWithFrame:self.bounds];
         _failView.hidden = YES;
         [_failView setNodatImage:[UIImage imageNamed:@"web_loadFail"]];
-        _failView.titleLabel.text = @"加载失败";
+        _failView.titleLabel.text = NSLocalizedString(@"加载失败", @"");
         [self addSubview:_failView];
     }
     return _failView;

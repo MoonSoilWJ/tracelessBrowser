@@ -3,49 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B10341D268B577E007976A9 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B10341C268B577E007976A9 /* Accelerate.framework */; };
-		3B10341F268B5785007976A9 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B10341E268B5785007976A9 /* AdSupport.framework */; };
-		3B103421268B57A3007976A9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B103420268B57A3007976A9 /* AudioToolbox.framework */; };
-		3B103423268B57AE007976A9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B103422268B57AE007976A9 /* AVFoundation.framework */; };
-		3B103425268B57BC007976A9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B103424268B57BC007976A9 /* CoreGraphics.framework */; };
-		3B103427268B57C5007976A9 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B103426268B57C5007976A9 /* CoreImage.framework */; };
-		3B103429268B57D3007976A9 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B103428268B57D3007976A9 /* CoreLocation.framework */; };
-		3B10342B268B57DD007976A9 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B10342A268B57DD007976A9 /* CoreMedia.framework */; };
-		3B10342D268B57EC007976A9 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B10342C268B57EC007976A9 /* CoreMotion.framework */; };
-		3B10342F268B5816007976A9 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B10342E268B5816007976A9 /* CoreTelephony.framework */; };
-		3B103431268B5822007976A9 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B103430268B5822007976A9 /* CoreText.framework */; };
-		3B103433268B582A007976A9 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B103432268B582A007976A9 /* ImageIO.framework */; };
-		3B103435268B5839007976A9 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B103434268B5839007976A9 /* JavaScriptCore.framework */; };
-		3B103437268B5841007976A9 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B103436268B5841007976A9 /* MapKit.framework */; };
-		3B103439268B584B007976A9 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B103438268B584B007976A9 /* MediaPlayer.framework */; };
-		3B10343B268B5857007976A9 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B10343A268B5857007976A9 /* MobileCoreServices.framework */; };
-		3B10343D268B5860007976A9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B10343C268B5860007976A9 /* QuartzCore.framework */; };
-		3B10343F268B586B007976A9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B10343E268B586B007976A9 /* Security.framework */; };
-		3B103441268B5878007976A9 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B103440268B5878007976A9 /* StoreKit.framework */; };
-		3B103443268B5888007976A9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B103442268B5888007976A9 /* SystemConfiguration.framework */; };
-		3B103445268B5890007976A9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B103444268B5890007976A9 /* UIKit.framework */; };
-		3B103447268B5898007976A9 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B103446268B5898007976A9 /* WebKit.framework */; };
-		3B103449268B58A7007976A9 /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B103448268B58A7007976A9 /* libbz2.tbd */; };
-		3B10344B268B58B1007976A9 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B10344A268B58B1007976A9 /* libc++.tbd */; };
-		3B10344D268B58C3007976A9 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B10344C268B58C3007976A9 /* libiconv.tbd */; };
-		3B10344F268B58D0007976A9 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B10344E268B58D0007976A9 /* libresolv.tbd */; };
-		3B103451268B58E0007976A9 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B103450268B58E0007976A9 /* libsqlite3.tbd */; };
-		3B103453268B58EB007976A9 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B103452268B58EB007976A9 /* libxml2.tbd */; };
-		3B103455268B58F7007976A9 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B103454268B58F7007976A9 /* libz.tbd */; };
-		3B103457268B5902007976A9 /* libc++abi.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B103456268B5902007976A9 /* libc++abi.tbd */; };
-		3B1034C8268C106A007976A9 /* AppTrackingTransparency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B1034C7268C106A007976A9 /* AppTrackingTransparency.framework */; };
-		3B1034CA268C1144007976A9 /* freeInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B1034C9268C1144007976A9 /* freeInfo.plist */; };
-		3B1034CB268C161A007976A9 /* libPods-tracelessBrowserFree.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3923AC37E477D3121545B980 /* libPods-tracelessBrowserFree.a */; };
-		3B18F61C268036A10065B7BD /* TBAboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B18F61A268036A00065B7BD /* TBAboutUsViewController.m */; };
-		3B18F61D268036A10065B7BD /* TBAboutUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B18F61B268036A00065B7BD /* TBAboutUsViewController.xib */; };
-		3B18F625268065260065B7BD /* TBUseTechViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B18F623268065260065B7BD /* TBUseTechViewController.m */; };
-		3B18F626268065260065B7BD /* TBUseTechViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B18F624268065260065B7BD /* TBUseTechViewController.xib */; };
-		3B18F6292683236E0065B7BD /* UINavigationController+TBNavigationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B18F6282683236C0065B7BD /* UINavigationController+TBNavigationDelegate.m */; };
-		3B18F62C2684259F0065B7BD /* WindowListAddNewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B18F62B2684259E0065B7BD /* WindowListAddNewCell.m */; };
 		3B2386C4268ACD5000BF09E3 /* TBBrowserHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE75B7F25C926DF0035F37A /* TBBrowserHeaderView.m */; };
 		3B2386C5268ACD5000BF09E3 /* NSNumber+ShortCut.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EB6A8258C4BB9000F2A10 /* NSNumber+ShortCut.m */; };
 		3B2386C6268ACD5000BF09E3 /* NSObject+Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EB6BF258C4BB9000F2A10 /* NSObject+Model.m */; };
@@ -118,72 +79,9 @@
 		3B23870B268ACD5000BF09E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B5EB654258B4FC3000F2A10 /* Assets.xcassets */; };
 		3B23870C268ACD5000BF09E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B5EB651258B4FBB000F2A10 /* Main.storyboard */; };
 		3B23870D268ACD5000BF09E3 /* TBUseTechViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B18F624268065260065B7BD /* TBUseTechViewController.xib */; };
-		3B2641D825E113870025F2B1 /* TBHistoryActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2641D725E113870025F2B1 /* TBHistoryActivity.m */; };
-		3B2DA37825EC7CFC00FA09D9 /* ChangeSkinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2DA37725EC7CFC00FA09D9 /* ChangeSkinViewController.m */; };
-		3B2DA38125EC8C0800FA09D9 /* ChangeSkinSelectImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2DA38025EC8C0800FA09D9 /* ChangeSkinSelectImageCell.m */; };
-		3B2DA38525EC8C2200FA09D9 /* ChangeSkinSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2DA38425EC8C2200FA09D9 /* ChangeSkinSwitchCell.m */; };
-		3B2DA39F25EF2F0500FA09D9 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2DA39E25EF2F0500FA09D9 /* BaseViewController.m */; };
-		3B2F7A4325C410CF009D5ED7 /* UIViewController+DeviceOriention.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2F7A4225C410CE009D5ED7 /* UIViewController+DeviceOriention.m */; };
-		3B5EB64A258B4FBB000F2A10 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EB649258B4FBB000F2A10 /* AppDelegate.m */; };
-		3B5EB64D258B4FBB000F2A10 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EB64C258B4FBB000F2A10 /* SceneDelegate.m */; };
-		3B5EB650258B4FBB000F2A10 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EB64F258B4FBB000F2A10 /* ViewController.m */; };
-		3B5EB653258B4FBB000F2A10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B5EB651258B4FBB000F2A10 /* Main.storyboard */; };
-		3B5EB655258B4FC3000F2A10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B5EB654258B4FC3000F2A10 /* Assets.xcassets */; };
-		3B5EB658258B4FC3000F2A10 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B5EB656258B4FC3000F2A10 /* LaunchScreen.storyboard */; };
-		3B5EB65B258B4FC3000F2A10 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EB65A258B4FC3000F2A10 /* main.m */; };
-		3B5EB66C258B666D000F2A10 /* TBSearchInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EB66B258B666D000F2A10 /* TBSearchInputView.m */; };
-		3B5EB67B258C46B3000F2A10 /* TBTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EB67A258C46B3000F2A10 /* TBTextView.m */; };
-		3B5EB6CB258C4BB9000F2A10 /* NSNumber+ShortCut.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EB6A8258C4BB9000F2A10 /* NSNumber+ShortCut.m */; };
-		3B5EB6CC258C4BB9000F2A10 /* UIViewController+ShortCut.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EB6AC258C4BB9000F2A10 /* UIViewController+ShortCut.m */; };
-		3B5EB6CD258C4BB9000F2A10 /* NSData+ShortCut.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EB6AE258C4BB9000F2A10 /* NSData+ShortCut.m */; };
-		3B5EB6CE258C4BB9000F2A10 /* NSString+ShortCut.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EB6AF258C4BB9000F2A10 /* NSString+ShortCut.m */; };
-		3B5EB6CF258C4BB9000F2A10 /* UIColor+ShortCut.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EB6B6258C4BB9000F2A10 /* UIColor+ShortCut.m */; };
-		3B5EB6D0258C4BB9000F2A10 /* NSDictionary+ShortCut.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EB6B8258C4BB9000F2A10 /* NSDictionary+ShortCut.m */; };
-		3B5EB6D1258C4BB9000F2A10 /* UIImage+ShortCut.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EB6B9258C4BB9000F2A10 /* UIImage+ShortCut.m */; };
-		3B5EB6D2258C4BB9000F2A10 /* NSArray+ShortCut.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EB6BB258C4BB9000F2A10 /* NSArray+ShortCut.m */; };
-		3B5EB6D3258C4BB9000F2A10 /* UITableView+ShortCut.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EB6BC258C4BB9000F2A10 /* UITableView+ShortCut.m */; };
-		3B5EB6D4258C4BB9000F2A10 /* UIApplication+ShortCut.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EB6BE258C4BB9000F2A10 /* UIApplication+ShortCut.m */; };
-		3B5EB6D5258C4BB9000F2A10 /* NSObject+Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EB6BF258C4BB9000F2A10 /* NSObject+Model.m */; };
-		3B5EB6D6258C4BB9000F2A10 /* NSDate+ShortCut.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EB6C0258C4BB9000F2A10 /* NSDate+ShortCut.m */; };
-		3B5EB6D7258C4BB9000F2A10 /* UIDevice+ShortCut.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EB6C3258C4BB9000F2A10 /* UIDevice+ShortCut.m */; };
-		3B5EB6D8258C4BB9000F2A10 /* UILabel+ShortCut.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EB6C5258C4BB9000F2A10 /* UILabel+ShortCut.m */; };
-		3B5EB6D9258C4BB9000F2A10 /* UIView+ShortCut.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EB6C8258C4BB9000F2A10 /* UIView+ShortCut.m */; };
-		3B5EB6DA258C4BB9000F2A10 /* UIButton+ShortCut.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EB6C9258C4BB9000F2A10 /* UIButton+ShortCut.m */; };
-		3B5EB6DB258C4BB9000F2A10 /* UIScreen+ShortCut.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EB6CA258C4BB9000F2A10 /* UIScreen+ShortCut.m */; };
-		3B5EB6FE258C53F2000F2A10 /* UIView+YKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EB6E7258C53F2000F2A10 /* UIView+YKCategory.m */; };
-		3B5EB6FF258C53F2000F2A10 /* UIView+TapedBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EB6E8258C53F2000F2A10 /* UIView+TapedBlock.m */; };
-		3B5EB700258C53F2000F2A10 /* UIView+Effects.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EB6EA258C53F2000F2A10 /* UIView+Effects.m */; };
-		3B5EB701258C53F2000F2A10 /* UIView+Gradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EB6EB258C53F2000F2A10 /* UIView+Gradient.m */; };
-		3B5EB702258C53F2000F2A10 /* UIView+LayerPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EB6ED258C53F2000F2A10 /* UIView+LayerPath.m */; };
-		3B5EB703258C53F2000F2A10 /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EB6EF258C53F2000F2A10 /* UITextView+Placeholder.m */; };
-		3B5EB704258C53F2000F2A10 /* UIImage+YKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EB6F3258C53F2000F2A10 /* UIImage+YKCategory.m */; };
-		3B5EB705258C53F2000F2A10 /* UIButton+YKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EB6F5258C53F2000F2A10 /* UIButton+YKCategory.m */; };
-		3B5EB706258C53F2000F2A10 /* UIFont+YKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EB6F6258C53F2000F2A10 /* UIFont+YKCategory.m */; };
-		3B5EB707258C53F2000F2A10 /* UIViewController+YKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EB6F7258C53F2000F2A10 /* UIViewController+YKCategory.m */; };
-		3B5EB708258C53F2000F2A10 /* NSString+YKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EB6FB258C53F2000F2A10 /* NSString+YKCategory.m */; };
-		3B5EB709258C53F2000F2A10 /* NSUserDefaults+YKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EB6FC258C53F2000F2A10 /* NSUserDefaults+YKCategory.m */; };
-		3B5EB70D258CA201000F2A10 /* UIButton+TB.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EB70C258CA201000F2A10 /* UIButton+TB.m */; };
-		3B5EB71225907D29000F2A10 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EB71125907D29000F2A10 /* iCarousel.m */; };
-		3B5EB71925918CC8000F2A10 /* TBBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EB71825918CC8000F2A10 /* TBBrowserViewController.m */; };
-		3B5EB71E25919B40000F2A10 /* XYWKWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EB71C25919B3F000F2A10 /* XYWKWebView.m */; };
-		3B5EB72425919B73000F2A10 /* XYWKTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EB72125919B73000F2A10 /* XYWKTool.m */; };
-		3B5EB72525919B73000F2A10 /* XYScriptMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EB72325919B73000F2A10 /* XYScriptMessage.m */; };
-		3B5EB72A2591DB3F000F2A10 /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EB7292591DB3E000F2A10 /* UINavigationController+FDFullscreenPopGesture.m */; };
-		3B5EB75125946A78000F2A10 /* TBNoDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EB75025946A78000F2A10 /* TBNoDataView.m */; };
-		3B5EB75525947614000F2A10 /* UIScrollView+TBScreenGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EB75425947614000F2A10 /* UIScrollView+TBScreenGesture.m */; };
-		3B5EB75925948A1C000F2A10 /* UIImage+RTTint.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EB75725948A1B000F2A10 /* UIImage+RTTint.m */; };
-		3BE75B8025C926DF0035F37A /* TBBrowserHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE75B7F25C926DF0035F37A /* TBBrowserHeaderView.m */; };
-		3BE75B8425C9595D0035F37A /* TBSearchPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE75B8325C9595D0035F37A /* TBSearchPopView.m */; };
-		3BE75B8925CA43FC0035F37A /* TBEnginsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE75B8825CA43FC0035F37A /* TBEnginsManager.m */; };
-		3BE75E3225CD40AD0035F37A /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE75E3025CD40AC0035F37A /* UIView+Toast.m */; };
-		3BE75E4325CF89C80035F37A /* TBScreenShotActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE75E4225CF89C80035F37A /* TBScreenShotActivity.m */; };
-		3BE75E4825CFB9940035F37A /* TBCopyActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE75E4725CFB9920035F37A /* TBCopyActivity.m */; };
-		3BF294D32613257F00CDA66C /* WindowManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BF294D22613257E00CDA66C /* WindowManager.m */; };
-		3BF294D726132D5F00CDA66C /* WindowModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BF294D626132D5F00CDA66C /* WindowModel.m */; };
-		3BF294DE261474CE00CDA66C /* WindowListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BF294DD261474CE00CDA66C /* WindowListViewController.m */; };
-		3BF294E326156ABA00CDA66C /* WindowListCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BF294E226156ABA00CDA66C /* WindowListCollectionCell.m */; };
-		3BF2950226244AD200CDA66C /* BrowserTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BF2950126244AD200CDA66C /* BrowserTransition.m */; };
-		3BFC3243260B2B9B00D963DF /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFC3242260B2B9B00D963DF /* SettingViewController.m */; };
+		4C9887DD42A0FB96E00631C1 /* libPods-tracelessBrowser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AF34DA3BC3A83DA647A1240E /* libPods-tracelessBrowser.a */; };
+		7CC0A40C2A6232AF00057804 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7CC0A40E2A6232AF00057804 /* InfoPlist.strings */; };
+		7CC0A4122A6236B900057804 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7CC0A4142A6236B900057804 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -192,7 +90,6 @@
 		3B10341A268B5537007976A9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		3B10341B268B5537007976A9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		3B10341C268B577E007976A9 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
-		3B10341E268B5785007976A9 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		3B103420268B57A3007976A9 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		3B103422268B57AE007976A9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		3B103424268B57BC007976A9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -221,8 +118,6 @@
 		3B103452268B58EB007976A9 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		3B103454268B58F7007976A9 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		3B103456268B5902007976A9 /* libc++abi.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++abi.tbd"; path = "usr/lib/libc++abi.tbd"; sourceTree = SDKROOT; };
-		3B1034C7268C106A007976A9 /* AppTrackingTransparency.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppTrackingTransparency.framework; path = System/Library/Frameworks/AppTrackingTransparency.framework; sourceTree = SDKROOT; };
-		3B1034C9268C1144007976A9 /* freeInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = freeInfo.plist; sourceTree = "<group>"; };
 		3B18F619268036A00065B7BD /* TBAboutUsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBAboutUsViewController.h; sourceTree = "<group>"; };
 		3B18F61A268036A00065B7BD /* TBAboutUsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBAboutUsViewController.m; sourceTree = "<group>"; };
 		3B18F61B268036A00065B7BD /* TBAboutUsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TBAboutUsViewController.xib; sourceTree = "<group>"; };
@@ -247,7 +142,6 @@
 		3B2DA39E25EF2F0500FA09D9 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		3B2F7A4125C410CE009D5ED7 /* UIViewController+DeviceOriention.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+DeviceOriention.h"; sourceTree = "<group>"; };
 		3B2F7A4225C410CE009D5ED7 /* UIViewController+DeviceOriention.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+DeviceOriention.m"; sourceTree = "<group>"; };
-		3B5EB645258B4FBB000F2A10 /* tracelessBrowserFree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tracelessBrowserFree.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B5EB648258B4FBB000F2A10 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3B5EB649258B4FBB000F2A10 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		3B5EB64B258B4FBB000F2A10 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
@@ -370,7 +264,14 @@
 		3BF2950126244AD200CDA66C /* BrowserTransition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrowserTransition.m; sourceTree = "<group>"; };
 		3BFC3241260B2B9B00D963DF /* SettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		3BFC3242260B2B9B00D963DF /* SettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		724789D210ABF0916E75A278 /* Pods-tracelessBrowser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tracelessBrowser.debug.xcconfig"; path = "Target Support Files/Pods-tracelessBrowser/Pods-tracelessBrowser.debug.xcconfig"; sourceTree = "<group>"; };
+		7CC0A40D2A6232AF00057804 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		7CC0A40F2A6232BF00057804 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7CC0A4132A6236B900057804 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7CC0A4162A6236D400057804 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		7F238880A23ACC6C4F5072A9 /* Pods-tracelessBrowser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tracelessBrowser.release.xcconfig"; path = "Target Support Files/Pods-tracelessBrowser/Pods-tracelessBrowser.release.xcconfig"; sourceTree = "<group>"; };
 		8AE47FDCDFD4C78FB840DDAD /* Pods-tracelessBrowserFree.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tracelessBrowserFree.release.xcconfig"; path = "Target Support Files/Pods-tracelessBrowserFree/Pods-tracelessBrowserFree.release.xcconfig"; sourceTree = "<group>"; };
+		AF34DA3BC3A83DA647A1240E /* libPods-tracelessBrowser.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-tracelessBrowser.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -378,45 +279,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3B5EB642258B4FBB000F2A10 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3B1034CB268C161A007976A9 /* libPods-tracelessBrowserFree.a in Frameworks */,
-				3B1034C8268C106A007976A9 /* AppTrackingTransparency.framework in Frameworks */,
-				3B103457268B5902007976A9 /* libc++abi.tbd in Frameworks */,
-				3B103455268B58F7007976A9 /* libz.tbd in Frameworks */,
-				3B103453268B58EB007976A9 /* libxml2.tbd in Frameworks */,
-				3B103451268B58E0007976A9 /* libsqlite3.tbd in Frameworks */,
-				3B10344F268B58D0007976A9 /* libresolv.tbd in Frameworks */,
-				3B10344D268B58C3007976A9 /* libiconv.tbd in Frameworks */,
-				3B10344B268B58B1007976A9 /* libc++.tbd in Frameworks */,
-				3B103449268B58A7007976A9 /* libbz2.tbd in Frameworks */,
-				3B103447268B5898007976A9 /* WebKit.framework in Frameworks */,
-				3B103445268B5890007976A9 /* UIKit.framework in Frameworks */,
-				3B103443268B5888007976A9 /* SystemConfiguration.framework in Frameworks */,
-				3B103441268B5878007976A9 /* StoreKit.framework in Frameworks */,
-				3B10343F268B586B007976A9 /* Security.framework in Frameworks */,
-				3B10343D268B5860007976A9 /* QuartzCore.framework in Frameworks */,
-				3B10343B268B5857007976A9 /* MobileCoreServices.framework in Frameworks */,
-				3B103439268B584B007976A9 /* MediaPlayer.framework in Frameworks */,
-				3B103437268B5841007976A9 /* MapKit.framework in Frameworks */,
-				3B103435268B5839007976A9 /* JavaScriptCore.framework in Frameworks */,
-				3B103433268B582A007976A9 /* ImageIO.framework in Frameworks */,
-				3B103431268B5822007976A9 /* CoreText.framework in Frameworks */,
-				3B10342F268B5816007976A9 /* CoreTelephony.framework in Frameworks */,
-				3B10342D268B57EC007976A9 /* CoreMotion.framework in Frameworks */,
-				3B10342B268B57DD007976A9 /* CoreMedia.framework in Frameworks */,
-				3B103429268B57D3007976A9 /* CoreLocation.framework in Frameworks */,
-				3B103427268B57C5007976A9 /* CoreImage.framework in Frameworks */,
-				3B103425268B57BC007976A9 /* CoreGraphics.framework in Frameworks */,
-				3B103423268B57AE007976A9 /* AVFoundation.framework in Frameworks */,
-				3B103421268B57A3007976A9 /* AudioToolbox.framework in Frameworks */,
-				3B10341F268B5785007976A9 /* AdSupport.framework in Frameworks */,
-				3B10341D268B577E007976A9 /* Accelerate.framework in Frameworks */,
+				4C9887DD42A0FB96E00631C1 /* libPods-tracelessBrowser.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,7 +344,6 @@
 		3B5EB646258B4FBB000F2A10 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3B5EB645258B4FBB000F2A10 /* tracelessBrowserFree.app */,
 				3B238711268ACD5000BF09E3 /* tracelessBrowser.app */,
 			);
 			name = Products;
@@ -506,7 +368,8 @@
 				3B5EB654258B4FC3000F2A10 /* Assets.xcassets */,
 				3B5EB656258B4FC3000F2A10 /* LaunchScreen.storyboard */,
 				3B5EB659258B4FC3000F2A10 /* Info.plist */,
-				3B1034C9268C1144007976A9 /* freeInfo.plist */,
+				7CC0A40E2A6232AF00057804 /* InfoPlist.strings */,
+				7CC0A4142A6236B900057804 /* Localizable.strings */,
 				3B5EB65A258B4FC3000F2A10 /* main.m */,
 				3B5EB684258C4B01000F2A10 /* PrefixHeader.pch */,
 			);
@@ -742,7 +605,6 @@
 		4558C0113116183E1C668F36 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3B1034C7268C106A007976A9 /* AppTrackingTransparency.framework */,
 				3B103456268B5902007976A9 /* libc++abi.tbd */,
 				3B103454268B58F7007976A9 /* libz.tbd */,
 				3B103452268B58EB007976A9 /* libxml2.tbd */,
@@ -771,9 +633,9 @@
 				3B103424268B57BC007976A9 /* CoreGraphics.framework */,
 				3B103422268B57AE007976A9 /* AVFoundation.framework */,
 				3B103420268B57A3007976A9 /* AudioToolbox.framework */,
-				3B10341E268B5785007976A9 /* AdSupport.framework */,
 				3B10341C268B577E007976A9 /* Accelerate.framework */,
 				3923AC37E477D3121545B980 /* libPods-tracelessBrowserFree.a */,
+				AF34DA3BC3A83DA647A1240E /* libPods-tracelessBrowser.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -783,6 +645,8 @@
 			children = (
 				0716D00412265B40B77279E0 /* Pods-tracelessBrowserFree.debug.xcconfig */,
 				8AE47FDCDFD4C78FB840DDAD /* Pods-tracelessBrowserFree.release.xcconfig */,
+				724789D210ABF0916E75A278 /* Pods-tracelessBrowser.debug.xcconfig */,
+				7F238880A23ACC6C4F5072A9 /* Pods-tracelessBrowser.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -794,6 +658,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3B23870E268ACD5000BF09E3 /* Build configuration list for PBXNativeTarget "tracelessBrowser" */;
 			buildPhases = (
+				A551A83B2D72058C681C9142 /* [CP] Check Pods Manifest.lock */,
 				3B2386C3268ACD5000BF09E3 /* Sources */,
 				3B238707268ACD5000BF09E3 /* Frameworks */,
 				3B238708268ACD5000BF09E3 /* Resources */,
@@ -807,25 +672,6 @@
 			productReference = 3B238711268ACD5000BF09E3 /* tracelessBrowser.app */;
 			productType = "com.apple.product-type.application";
 		};
-		3B5EB644258B4FBB000F2A10 /* tracelessBrowserFree */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3B5EB65E258B4FC3000F2A10 /* Build configuration list for PBXNativeTarget "tracelessBrowserFree" */;
-			buildPhases = (
-				95BC391E86B1A4DAA7502A88 /* [CP] Check Pods Manifest.lock */,
-				3B5EB641258B4FBB000F2A10 /* Sources */,
-				3B5EB642258B4FBB000F2A10 /* Frameworks */,
-				3B5EB643258B4FBB000F2A10 /* Resources */,
-				BA3B9E1A6D1D774C2A4EE879 /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = tracelessBrowserFree;
-			productName = tracelessBrowser;
-			productReference = 3B5EB645258B4FBB000F2A10 /* tracelessBrowserFree.app */;
-			productType = "com.apple.product-type.application";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -833,11 +679,6 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1220;
-				TargetAttributes = {
-					3B5EB644258B4FBB000F2A10 = {
-						CreatedOnToolsVersion = 12.2;
-					};
-				};
 			};
 			buildConfigurationList = 3B5EB640258B4FBB000F2A10 /* Build configuration list for PBXProject "tracelessBrowser" */;
 			compatibilityVersion = "Xcode 9.3";
@@ -854,7 +695,6 @@
 			projectRoot = "";
 			targets = (
 				3B2386C2268ACD5000BF09E3 /* tracelessBrowser */,
-				3B5EB644258B4FBB000F2A10 /* tracelessBrowserFree */,
 			);
 		};
 /* End PBXProject section */
@@ -865,30 +705,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B238709268ACD5000BF09E3 /* TBAboutUsViewController.xib in Resources */,
+				7CC0A40C2A6232AF00057804 /* InfoPlist.strings in Resources */,
 				3B23870A268ACD5000BF09E3 /* LaunchScreen.storyboard in Resources */,
-				3B1034CA268C1144007976A9 /* freeInfo.plist in Resources */,
+				7CC0A4122A6236B900057804 /* Localizable.strings in Resources */,
 				3B23870B268ACD5000BF09E3 /* Assets.xcassets in Resources */,
 				3B23870C268ACD5000BF09E3 /* Main.storyboard in Resources */,
 				3B23870D268ACD5000BF09E3 /* TBUseTechViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3B5EB643258B4FBB000F2A10 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3B18F61D268036A10065B7BD /* TBAboutUsViewController.xib in Resources */,
-				3B5EB658258B4FC3000F2A10 /* LaunchScreen.storyboard in Resources */,
-				3B5EB655258B4FC3000F2A10 /* Assets.xcassets in Resources */,
-				3B5EB653258B4FBB000F2A10 /* Main.storyboard in Resources */,
-				3B18F626268065260065B7BD /* TBUseTechViewController.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		95BC391E86B1A4DAA7502A88 /* [CP] Check Pods Manifest.lock */ = {
+		A551A83B2D72058C681C9142 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -903,28 +732,11 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-tracelessBrowserFree-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-tracelessBrowser-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BA3B9E1A6D1D774C2A4EE879 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-tracelessBrowserFree/Pods-tracelessBrowserFree-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-tracelessBrowserFree/Pods-tracelessBrowserFree-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-tracelessBrowserFree/Pods-tracelessBrowserFree-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1004,80 +816,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3B5EB641258B4FBB000F2A10 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3BE75B8025C926DF0035F37A /* TBBrowserHeaderView.m in Sources */,
-				3B5EB6CB258C4BB9000F2A10 /* NSNumber+ShortCut.m in Sources */,
-				3B5EB6D5258C4BB9000F2A10 /* NSObject+Model.m in Sources */,
-				3B5EB6D8258C4BB9000F2A10 /* UILabel+ShortCut.m in Sources */,
-				3B2DA38125EC8C0800FA09D9 /* ChangeSkinSelectImageCell.m in Sources */,
-				3B2DA39F25EF2F0500FA09D9 /* BaseViewController.m in Sources */,
-				3B5EB6CE258C4BB9000F2A10 /* NSString+ShortCut.m in Sources */,
-				3BFC3243260B2B9B00D963DF /* SettingViewController.m in Sources */,
-				3B5EB650258B4FBB000F2A10 /* ViewController.m in Sources */,
-				3B5EB6D3258C4BB9000F2A10 /* UITableView+ShortCut.m in Sources */,
-				3B5EB71E25919B40000F2A10 /* XYWKWebView.m in Sources */,
-				3B5EB6D2258C4BB9000F2A10 /* NSArray+ShortCut.m in Sources */,
-				3B18F61C268036A10065B7BD /* TBAboutUsViewController.m in Sources */,
-				3B5EB71925918CC8000F2A10 /* TBBrowserViewController.m in Sources */,
-				3B5EB6D4258C4BB9000F2A10 /* UIApplication+ShortCut.m in Sources */,
-				3B5EB707258C53F2000F2A10 /* UIViewController+YKCategory.m in Sources */,
-				3B5EB704258C53F2000F2A10 /* UIImage+YKCategory.m in Sources */,
-				3B5EB72A2591DB3F000F2A10 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
-				3B5EB6FE258C53F2000F2A10 /* UIView+YKCategory.m in Sources */,
-				3B2641D825E113870025F2B1 /* TBHistoryActivity.m in Sources */,
-				3B18F6292683236E0065B7BD /* UINavigationController+TBNavigationDelegate.m in Sources */,
-				3BF294DE261474CE00CDA66C /* WindowListViewController.m in Sources */,
-				3B18F62C2684259F0065B7BD /* WindowListAddNewCell.m in Sources */,
-				3B5EB64A258B4FBB000F2A10 /* AppDelegate.m in Sources */,
-				3BF294D32613257F00CDA66C /* WindowManager.m in Sources */,
-				3B5EB72425919B73000F2A10 /* XYWKTool.m in Sources */,
-				3B5EB6DB258C4BB9000F2A10 /* UIScreen+ShortCut.m in Sources */,
-				3BE75B8425C9595D0035F37A /* TBSearchPopView.m in Sources */,
-				3B5EB6CC258C4BB9000F2A10 /* UIViewController+ShortCut.m in Sources */,
-				3BF2950226244AD200CDA66C /* BrowserTransition.m in Sources */,
-				3B2DA37825EC7CFC00FA09D9 /* ChangeSkinViewController.m in Sources */,
-				3B5EB67B258C46B3000F2A10 /* TBTextView.m in Sources */,
-				3B5EB703258C53F2000F2A10 /* UITextView+Placeholder.m in Sources */,
-				3B5EB6D7258C4BB9000F2A10 /* UIDevice+ShortCut.m in Sources */,
-				3B5EB75125946A78000F2A10 /* TBNoDataView.m in Sources */,
-				3B5EB702258C53F2000F2A10 /* UIView+LayerPath.m in Sources */,
-				3B5EB72525919B73000F2A10 /* XYScriptMessage.m in Sources */,
-				3B5EB6D9258C4BB9000F2A10 /* UIView+ShortCut.m in Sources */,
-				3BE75E4325CF89C80035F37A /* TBScreenShotActivity.m in Sources */,
-				3B5EB709258C53F2000F2A10 /* NSUserDefaults+YKCategory.m in Sources */,
-				3B2DA38525EC8C2200FA09D9 /* ChangeSkinSwitchCell.m in Sources */,
-				3BE75E3225CD40AD0035F37A /* UIView+Toast.m in Sources */,
-				3BF294D726132D5F00CDA66C /* WindowModel.m in Sources */,
-				3B5EB65B258B4FC3000F2A10 /* main.m in Sources */,
-				3B5EB71225907D29000F2A10 /* iCarousel.m in Sources */,
-				3B5EB706258C53F2000F2A10 /* UIFont+YKCategory.m in Sources */,
-				3BE75B8925CA43FC0035F37A /* TBEnginsManager.m in Sources */,
-				3B5EB6DA258C4BB9000F2A10 /* UIButton+ShortCut.m in Sources */,
-				3B5EB6FF258C53F2000F2A10 /* UIView+TapedBlock.m in Sources */,
-				3B5EB6D1258C4BB9000F2A10 /* UIImage+ShortCut.m in Sources */,
-				3BE75E4825CFB9940035F37A /* TBCopyActivity.m in Sources */,
-				3B5EB75925948A1C000F2A10 /* UIImage+RTTint.m in Sources */,
-				3B5EB708258C53F2000F2A10 /* NSString+YKCategory.m in Sources */,
-				3B2F7A4325C410CF009D5ED7 /* UIViewController+DeviceOriention.m in Sources */,
-				3B5EB75525947614000F2A10 /* UIScrollView+TBScreenGesture.m in Sources */,
-				3B5EB6CF258C4BB9000F2A10 /* UIColor+ShortCut.m in Sources */,
-				3B5EB705258C53F2000F2A10 /* UIButton+YKCategory.m in Sources */,
-				3BF294E326156ABA00CDA66C /* WindowListCollectionCell.m in Sources */,
-				3B5EB6D6258C4BB9000F2A10 /* NSDate+ShortCut.m in Sources */,
-				3B5EB64D258B4FBB000F2A10 /* SceneDelegate.m in Sources */,
-				3B5EB6D0258C4BB9000F2A10 /* NSDictionary+ShortCut.m in Sources */,
-				3B5EB6CD258C4BB9000F2A10 /* NSData+ShortCut.m in Sources */,
-				3B5EB66C258B666D000F2A10 /* TBSearchInputView.m in Sources */,
-				3B5EB701258C53F2000F2A10 /* UIView+Gradient.m in Sources */,
-				3B18F625268065260065B7BD /* TBUseTechViewController.m in Sources */,
-				3B5EB700258C53F2000F2A10 /* UIView+Effects.m in Sources */,
-				3B5EB70D258CA201000F2A10 /* UIButton+TB.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
@@ -1099,18 +837,37 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		7CC0A40E2A6232AF00057804 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7CC0A40D2A6232AF00057804 /* zh-Hans */,
+				7CC0A40F2A6232BF00057804 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		7CC0A4142A6236B900057804 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7CC0A4132A6236B900057804 /* en */,
+				7CC0A4162A6236D400057804 /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		3B23870F268ACD5000BF09E3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 724789D210ABF0916E75A278 /* Pods-tracelessBrowser.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = tracelessBrowser/tracelessBrowser.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2.0.2.0;
+				CURRENT_PROJECT_VERSION = 2.0.7.0;
 				DEVELOPMENT_TEAM = 4TF4QQTW2C;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/tracelessBrowser/prefixHeader.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1118,12 +875,12 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = tracelessBrowser/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.2;
+				MARKETING_VERSION = 2.0.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dwj.tracelessBrowser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1134,23 +891,24 @@
 		};
 		3B238710268ACD5000BF09E3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F238880A23ACC6C4F5072A9 /* Pods-tracelessBrowser.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = tracelessBrowser/tracelessBrowser.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2.0.2.0;
+				CURRENT_PROJECT_VERSION = 2.0.7.0;
 				DEVELOPMENT_TEAM = 4TF4QQTW2C;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/tracelessBrowser/prefixHeader.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "";
 				INFOPLIST_FILE = tracelessBrowser/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.2;
+				MARKETING_VERSION = 2.0.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dwj.tracelessBrowser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1273,92 +1031,6 @@
 			};
 			name = Release;
 		};
-		3B5EB65F258B4FC3000F2A10 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0716D00412265B40B77279E0 /* Pods-tracelessBrowserFree.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = tracelessBrowser/tracelessBrowser.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2.0.2.1;
-				DEVELOPMENT_TEAM = 4TF4QQTW2C;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"${PODS_ROOT}\"/**",
-				);
-				GCC_PREFIX_HEADER = "$(SRCROOT)/tracelessBrowser/prefixHeader.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"$(inherited)",
-					"DEBUG=1",
-					"FREE=1",
-				);
-				INFOPLIST_FILE = tracelessBrowser/freeInfo.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 2.0.2;
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-l\"c++\"",
-					"-l\"c++abi\"",
-					"-l\"z\"",
-					"-l\"sqlite3\"",
-					"-all_load",
-					"$(inherited)",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dwj.tracelessBrowser.free;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SUPPORTS_MACCATALYST = NO;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		3B5EB660258B4FC3000F2A10 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8AE47FDCDFD4C78FB840DDAD /* Pods-tracelessBrowserFree.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = tracelessBrowser/tracelessBrowser.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2.0.2.1;
-				DEVELOPMENT_TEAM = 4TF4QQTW2C;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"${PODS_ROOT}\"/**",
-				);
-				GCC_PREFIX_HEADER = "$(SRCROOT)/tracelessBrowser/prefixHeader.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = "FREE=1";
-				INFOPLIST_FILE = tracelessBrowser/freeInfo.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 2.0.2;
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-l\"c++\"",
-					"-l\"c++abi\"",
-					"-l\"z\"",
-					"-l\"sqlite3\"",
-					"-all_load",
-					"$(inherited)",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dwj.tracelessBrowser.free;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SUPPORTS_MACCATALYST = NO;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1376,15 +1048,6 @@
 			buildConfigurations = (
 				3B5EB65C258B4FC3000F2A10 /* Debug */,
 				3B5EB65D258B4FC3000F2A10 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3B5EB65E258B4FC3000F2A10 /* Build configuration list for PBXNativeTarget "tracelessBrowserFree" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3B5EB65F258B4FC3000F2A10 /* Debug */,
-				3B5EB660258B4FC3000F2A10 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

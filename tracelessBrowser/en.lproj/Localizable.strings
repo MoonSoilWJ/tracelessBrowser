@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  tracelessBrowser
+
+  Created by 1234 on 2023/07/15.
+  
+*/
+
+"请输入要搜索的内容或网址" = "Please enter the content to search for or website";
+"设置" = "Setting";
+"清除缓存" = "Clear Cache";
+"使用指南" = "Usage Guidelines";
+"关于我们" = "About Us";
+"截长图"="Screenshot length image";
+"复制链接"="copy link";
+"复制成功"="Success copy";
+"加载失败"="Load Fail";
+

@@ -8,11 +8,12 @@
 #import <UIKit/UIKit.h>
 #import "XYWKWebView.h"
 #import "XYScriptMessage.h"
+#import "BaseViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @class WindowModel;
-@interface TBBrowserViewController : UIViewController
+@interface TBBrowserViewController : BaseViewController
 
 @property (nonatomic, strong, nullable) XYWKWebView *webView;
 // 完整url

@@ -17,12 +17,15 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = UIColor.whiteColor;
-        self.font = [UIFont systemFontOfSize:25];
+        self.font = [UIFont systemFontOfSize:20];
         self.textContainerInset = UIEdgeInsetsMake(10, 10, 0, 20);
-        self.placeholderStr = @"输入文本";
+        self.backgroundColor = [UIColor colorWithHexString:@"E8E8E8"];
+        self.placeholderStr = NSLocalizedString(@"请输入要搜索的内容或网址", @"");
         self.editable = YES;
         self.returnKeyType = UIReturnKeySearch;
         self.delegate = self;
+        self.layer.cornerRadius = 15;
+        self.layer.masksToBounds = YES;
     }
     return self;
 }
@@ -75,7 +78,7 @@
             NSURL *url = [NSURL URLWithString:urlStr];
             if (url) {
                 NSDictionary *linkDic = @{ NSLinkAttributeName : url};
-                NSMutableAttributedString *mutAtt = [[NSMutableAttributedString alloc] initWithString:textView.text attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:25]}];
+                NSMutableAttributedString *mutAtt = [[NSMutableAttributedString alloc] initWithString:textView.text attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:20]}];
                 
                 [mutAtt addAttributes:linkDic range:urlRange];
                 textView.attributedText = mutAtt;

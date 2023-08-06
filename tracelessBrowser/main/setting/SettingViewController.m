@@ -23,13 +23,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"设置";
+    self.title = NSLocalizedString(@"设置", @"");
     
     _array = @[
-        @"清除缓存",
+        NSLocalizedString(@"清除缓存", @""),
 //        @"换肤中心",
-        @"使用指南",
-        @"关于我们"
+        NSLocalizedString(@"使用指南", @""),
+        NSLocalizedString(@"关于我们", @"")
     ];
     
     _tableview = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth(), ScreenHeight()) style:UITableViewStyleGrouped];

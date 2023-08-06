@@ -32,7 +32,7 @@
 }
 
 - (NSString *)activityTitle {
-    return @"复制链接";
+    return NSLocalizedString(@"复制链接", @"") ;
 }
 
 - (BOOL)canPerformWithActivityItems:(NSArray *)activityItems {
@@ -42,7 +42,7 @@
 - (void)prepareWithActivityItems:(NSArray *)activityItems {
     NSURL *url = [activityItems firstObject];
     [UIPasteboard generalPasteboard].string = url.absoluteString;
-    [_web.viewController.view makeToast:@"复制成功"];
+    [_web.viewController.view makeToast:NSLocalizedString(@"复制成功", @"")];
 }
 
 @end

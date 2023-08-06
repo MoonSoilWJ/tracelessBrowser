@@ -62,7 +62,7 @@
     
     [self.backgroundView addSubview:self.pop.whiteView];
  
-    self.textView = [[TBTextView alloc] initWithFrame:CGRectMake(0,20,UIScreen.mainScreen.bounds.size.width, self.view.height/3)];
+    self.textView = [[TBTextView alloc] initWithFrame:CGRectMake(17,20,UIScreen.mainScreen.bounds.size.width-34, self.view.height/3)];
     __weak typeof(self) ws = self;
     self.textView.searchTappedBlock = ^(NSString * _Nonnull text) {
         [ws search:text];
@@ -279,7 +279,7 @@
         
         UIView *whiteView = [[UIView alloc] initWithFrame:CGRectMake(5, 0, 130, 60)];
         whiteView.backgroundColor = UIColor.whiteColor;
-        [whiteView bezierPathRectCorner:UIRectCornerAllCorners conrnerRadius:10 borderWidth:2 borderColor:THEME_COLOR];
+        [whiteView bezierPathRectCorner:UIRectCornerAllCorners conrnerRadius:10 borderWidth:2 borderColor:[UIColor colorWithHexString:@"#E8E8E8"]];
         [view addSubview:whiteView];
         
         UIImageView *imagV = [[UIImageView alloc] initWithFrame:CGRectMake(5, 15, 120, 30)];

@@ -16,7 +16,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"使用教程";
+    self.title = NSLocalizedString(@"使用指南", @"");
     // Do any additional setup after loading the view from its nib.
 }
 

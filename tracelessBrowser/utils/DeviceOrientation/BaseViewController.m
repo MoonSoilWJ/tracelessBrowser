@@ -1,28 +1,39 @@
-////
-////  BaseViewController.m
-////  tracelessBrowser
-////
-////  Created by 杜文杰 on 2021/3/3.
-////
 //
-//#import "BaseViewController.h"
-//#import "TBEnginsManager.h"
-//#import "UIViewController+DeviceOriention.h"
+//  BaseViewController.m
+//  tracelessBrowser
 //
-//@interface BaseViewController ()
-//@property (nonatomic, retain) UIImageView *imageView;
-////@property (nonatomic, retain) UIVisualEffectView *blurEffectView1;
-//@end
+//  Created by 杜文杰 on 2021/3/3.
 //
-//@implementation BaseViewController
-//
-//- (void)viewDidLoad{
-//    [super viewDidLoad];
-//
-//    self.view.backgroundColor = UIColor.whiteColor;
+
+#import "BaseViewController.h"
+#import "TBEnginsManager.h"
+#import "UIViewController+DeviceOriention.h"
+
+@interface BaseViewController ()
+@property (nonatomic, retain) UIImageView *imageView;
+//@property (nonatomic, retain) UIVisualEffectView *blurEffectView1;
+@end
+
+@implementation BaseViewController
+
+- (void)viewDidLoad{
+    [super viewDidLoad];
+
+    self.view.backgroundColor = UIColor.whiteColor;
+    
+    if (self.navigationController.viewControllers.count > 1){
+        UIBarButtonItem *leftBarButtonItem  =[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"nav_back"] style:UIBarButtonItemStylePlain target:self action:@selector(leftBarAction:)];
+        leftBarButtonItem.tintColor = [UIColor colorWithHexString:@"#1A1A1A"];
+        self.navigationItem.leftBarButtonItem = leftBarButtonItem;
+    }
+    
 //    [self addChangeSkinToView:self.view];
-//}
-//
+}
+
+- (void)leftBarAction:(id)sender{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 //- (void)addChangeSkinToView:(UIView *)view{
 //    _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth(), ScreenHeight())];
 //    _imageView.hidden = YES;
@@ -100,5 +111,5 @@
 //    self.imageView.frame = CGRectMake(0, 0, ScreenWidth(), ScreenHeight());
 ////    _blurEffectView1.frame = _imageView.bounds;
 //}
-//
-//@end
+
+@end

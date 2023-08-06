@@ -7,8 +7,8 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
-#import <AppTrackingTransparency/AppTrackingTransparency.h>
-#import <AdSupport/AdSupport.h>
+//#import <AppTrackingTransparency/AppTrackingTransparency.h>
+//#import <AdSupport/AdSupport.h>
 #ifdef FREE
 #import <BUAdSDK/BUAdSDKManager.h>
 #else
@@ -22,10 +22,10 @@
 
 - (void)requestIDFA {
     if (@available(iOS 14, *)) {
-        [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
-            // Tracking authorization completed. Start loading ads here.
-            // [self loadAd];
-        }];
+//        [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
+//            // Tracking authorization completed. Start loading ads here.
+//            // [self loadAd];
+//        }];
     } else {
         // Fallback on earlier versions
     }
@@ -37,7 +37,7 @@
 #ifdef FREE
     [BUAdSDKManager setAppID:@"5186009"];
     [BUAdSDKManager setLoglevel:BUAdSDKLogLevelDebug];
-    [BUAdSDKManager setIsPaidApp:NO];
+//    [BUAdSDKManager setIsPaidApp:NO];
 #else
 #endif
     return YES;

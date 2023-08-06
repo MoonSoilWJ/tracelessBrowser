@@ -29,7 +29,7 @@
 #define HOME_INDICATOR_HEIGHT      (iPhoneX ? 34.f : 0.f)
 #define iPhoneX  (MAX(SCREEN_W, SCREEN_H) >= 812)
 
-#define THEME_COLOR rgba(74, 158, 183, 1)
+#define THEME_COLOR [UIColor colorWithHexString:@"#686868"]
 
 #ifdef DEBUG
 #define XYWKLog(...) NSLog( @"< %s:(第%d行) > %@",__func__ , __LINE__, [NSString stringWithFormat:__VA_ARGS__] )

@@ -34,7 +34,7 @@
 //}
 
 - (NSString *)activityTitle {
-    return @"截长图";
+    return NSLocalizedString(@"截长图",@"") ;
 }
 
 - (BOOL)canPerformWithActivityItems:(NSArray *)activityItems {

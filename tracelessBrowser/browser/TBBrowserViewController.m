@@ -136,7 +136,7 @@
             progress += 0.03;
         }
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self showLoadingProgress:progress andTintColor:THEME_COLOR];
+            [self showLoadingProgress:progress andTintColor:[UIColor colorWithHexString:@"#F8F8F8"]];
         });
     }];
 }
@@ -156,7 +156,7 @@
         }
         progress += 0.02;
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self showLoadingProgress:progress andTintColor:THEME_COLOR];
+            [self showLoadingProgress:progress andTintColor:[UIColor colorWithHexString:@"#F8F8F8"]];
         });
     }];
 }

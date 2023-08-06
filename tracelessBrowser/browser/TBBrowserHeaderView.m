@@ -36,7 +36,7 @@
         _gradientLayer.startPoint = CGPointMake(0.5, 0);
         _gradientLayer.endPoint = CGPointMake(0.5, 1);
         _gradientLayer.frame = self.bounds;
-        [self.layer addSublayer:_gradientLayer];
+//        [self.layer addSublayer:_gradientLayer];
         
         [self setUpViews];
     }
