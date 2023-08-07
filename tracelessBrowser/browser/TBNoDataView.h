@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)setImgViewTopSpace:(CGFloat )topSpace;
 
-- (void)deviceOrientionChanged:(UIDeviceOrientation)deviceOriention;
+- (void)deviceOrientionChanged;
 
 @end
 

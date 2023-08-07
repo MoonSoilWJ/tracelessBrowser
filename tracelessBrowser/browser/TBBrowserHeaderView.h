@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, weak) id<BrowserHeadBtnProtocol> delegate;
 
-- (void)deviceOrientionChanged:(UIDeviceOrientation)deviceOriention;
+- (void)deviceOrientionChanged;
 
 @end
 

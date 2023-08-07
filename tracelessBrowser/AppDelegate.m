@@ -7,6 +7,8 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import <UMCommon/MobClick.h>
+#import <UMCommon/UMCommon.h>
 //#import <AppTrackingTransparency/AppTrackingTransparency.h>
 //#import <AdSupport/AdSupport.h>
 #ifdef FREE
@@ -31,6 +33,12 @@
     }
 }
 
+-(void)configUSharePlatforms {
+    //设置为自动采集页面
+    [MobClick setAutoPageEnabled:YES];
+    [UMConfigure initWithAppkey:@"64d0f19da1a164591b64d475" channel:@"App Store"];
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
@@ -40,6 +48,9 @@
 //    [BUAdSDKManager setIsPaidApp:NO];
 #else
 #endif
+    // 友盟
+    [self configUSharePlatforms];
+    
     return YES;
 }
 

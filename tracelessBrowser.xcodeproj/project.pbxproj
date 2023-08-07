@@ -79,14 +79,12 @@
 		3B23870B268ACD5000BF09E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B5EB654258B4FC3000F2A10 /* Assets.xcassets */; };
 		3B23870C268ACD5000BF09E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B5EB651258B4FBB000F2A10 /* Main.storyboard */; };
 		3B23870D268ACD5000BF09E3 /* TBUseTechViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B18F624268065260065B7BD /* TBUseTechViewController.xib */; };
-		4C9887DD42A0FB96E00631C1 /* libPods-tracelessBrowser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AF34DA3BC3A83DA647A1240E /* libPods-tracelessBrowser.a */; };
 		7CC0A40C2A6232AF00057804 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7CC0A40E2A6232AF00057804 /* InfoPlist.strings */; };
 		7CC0A4122A6236B900057804 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7CC0A4142A6236B900057804 /* Localizable.strings */; };
+		7CD409FC2A81320900EF0088 /* Pods_tracelessBrowser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CD409FB2A81320900EF0088 /* Pods_tracelessBrowser.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0716D00412265B40B77279E0 /* Pods-tracelessBrowserFree.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tracelessBrowserFree.debug.xcconfig"; path = "Target Support Files/Pods-tracelessBrowserFree/Pods-tracelessBrowserFree.debug.xcconfig"; sourceTree = "<group>"; };
-		3923AC37E477D3121545B980 /* libPods-tracelessBrowserFree.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-tracelessBrowserFree.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B10341A268B5537007976A9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		3B10341B268B5537007976A9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		3B10341C268B577E007976A9 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
@@ -264,14 +262,14 @@
 		3BF2950126244AD200CDA66C /* BrowserTransition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrowserTransition.m; sourceTree = "<group>"; };
 		3BFC3241260B2B9B00D963DF /* SettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		3BFC3242260B2B9B00D963DF /* SettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
-		724789D210ABF0916E75A278 /* Pods-tracelessBrowser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tracelessBrowser.debug.xcconfig"; path = "Target Support Files/Pods-tracelessBrowser/Pods-tracelessBrowser.debug.xcconfig"; sourceTree = "<group>"; };
+		4C7C362CE631739184293373 /* Pods_tracelessBrowser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tracelessBrowser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CC0A40D2A6232AF00057804 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		7CC0A40F2A6232BF00057804 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7CC0A4132A6236B900057804 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7CC0A4162A6236D400057804 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		7F238880A23ACC6C4F5072A9 /* Pods-tracelessBrowser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tracelessBrowser.release.xcconfig"; path = "Target Support Files/Pods-tracelessBrowser/Pods-tracelessBrowser.release.xcconfig"; sourceTree = "<group>"; };
-		8AE47FDCDFD4C78FB840DDAD /* Pods-tracelessBrowserFree.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tracelessBrowserFree.release.xcconfig"; path = "Target Support Files/Pods-tracelessBrowserFree/Pods-tracelessBrowserFree.release.xcconfig"; sourceTree = "<group>"; };
-		AF34DA3BC3A83DA647A1240E /* libPods-tracelessBrowser.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-tracelessBrowser.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7CD409FB2A81320900EF0088 /* Pods_tracelessBrowser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_tracelessBrowser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE4FE838378B5926B5B6DBDE /* Pods-tracelessBrowser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tracelessBrowser.release.xcconfig"; path = "Target Support Files/Pods-tracelessBrowser/Pods-tracelessBrowser.release.xcconfig"; sourceTree = "<group>"; };
+		E76C80697A9624547B4D2D62 /* Pods-tracelessBrowser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tracelessBrowser.debug.xcconfig"; path = "Target Support Files/Pods-tracelessBrowser/Pods-tracelessBrowser.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,7 +277,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C9887DD42A0FB96E00631C1 /* libPods-tracelessBrowser.a in Frameworks */,
+				7CD409FC2A81320900EF0088 /* Pods_tracelessBrowser.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -605,6 +603,7 @@
 		4558C0113116183E1C668F36 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7CD409FB2A81320900EF0088 /* Pods_tracelessBrowser.framework */,
 				3B103456268B5902007976A9 /* libc++abi.tbd */,
 				3B103454268B58F7007976A9 /* libz.tbd */,
 				3B103452268B58EB007976A9 /* libxml2.tbd */,
@@ -634,8 +633,7 @@
 				3B103422268B57AE007976A9 /* AVFoundation.framework */,
 				3B103420268B57A3007976A9 /* AudioToolbox.framework */,
 				3B10341C268B577E007976A9 /* Accelerate.framework */,
-				3923AC37E477D3121545B980 /* libPods-tracelessBrowserFree.a */,
-				AF34DA3BC3A83DA647A1240E /* libPods-tracelessBrowser.a */,
+				4C7C362CE631739184293373 /* Pods_tracelessBrowser.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -643,10 +641,8 @@
 		8FBC113F146FBEF6CF8E384C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				0716D00412265B40B77279E0 /* Pods-tracelessBrowserFree.debug.xcconfig */,
-				8AE47FDCDFD4C78FB840DDAD /* Pods-tracelessBrowserFree.release.xcconfig */,
-				724789D210ABF0916E75A278 /* Pods-tracelessBrowser.debug.xcconfig */,
-				7F238880A23ACC6C4F5072A9 /* Pods-tracelessBrowser.release.xcconfig */,
+				E76C80697A9624547B4D2D62 /* Pods-tracelessBrowser.debug.xcconfig */,
+				BE4FE838378B5926B5B6DBDE /* Pods-tracelessBrowser.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -658,7 +654,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3B23870E268ACD5000BF09E3 /* Build configuration list for PBXNativeTarget "tracelessBrowser" */;
 			buildPhases = (
-				A551A83B2D72058C681C9142 /* [CP] Check Pods Manifest.lock */,
+				016F306B128B1B221CDA0891 /* [CP] Check Pods Manifest.lock */,
 				3B2386C3268ACD5000BF09E3 /* Sources */,
 				3B238707268ACD5000BF09E3 /* Frameworks */,
 				3B238708268ACD5000BF09E3 /* Resources */,
@@ -717,7 +713,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		A551A83B2D72058C681C9142 /* [CP] Check Pods Manifest.lock */ = {
+		016F306B128B1B221CDA0891 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -860,7 +856,7 @@
 /* Begin XCBuildConfiguration section */
 		3B23870F268ACD5000BF09E3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 724789D210ABF0916E75A278 /* Pods-tracelessBrowser.debug.xcconfig */;
+			baseConfigurationReference = E76C80697A9624547B4D2D62 /* Pods-tracelessBrowser.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -869,6 +865,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2.0.7.0;
 				DEVELOPMENT_TEAM = 4TF4QQTW2C;
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/tracelessBrowser/prefixHeader.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -891,7 +888,7 @@
 		};
 		3B238710268ACD5000BF09E3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7F238880A23ACC6C4F5072A9 /* Pods-tracelessBrowser.release.xcconfig */;
+			baseConfigurationReference = BE4FE838378B5926B5B6DBDE /* Pods-tracelessBrowser.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -900,6 +897,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2.0.7.0;
 				DEVELOPMENT_TEAM = 4TF4QQTW2C;
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/tracelessBrowser/prefixHeader.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "";
 				INFOPLIST_FILE = tracelessBrowser/Info.plist;

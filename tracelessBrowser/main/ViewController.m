@@ -339,18 +339,23 @@
 }
 
 //MARK: - deviceOrientionChangedProtocol
-- (void)deviceOrientionChanged:(UIDeviceOrientation)deviceOrientation {
-//    [super deviceOrientionChanged:deviceOrientation];
-    
-    self.backgroundView.frame  = self.view.bounds;
-    self.myCarousel.frame = CGRectMake(0, STATUS_BAR_HEIGHT + 20, ScreenWidth(), 80);
-    self.goButton.frame = CGRectMake(ScreenWidth()/2 - 40, ScreenHeight() - TAB_BAR_HEIGHT - self.view.height/7, 80, 80);
-    self.pop.frame = UIScreen.mainScreen.bounds;
-    [self.pop deviceOrientionChanged:deviceOrientation];
-    
-    self.textView.size = CGSizeMake(UIScreen.mainScreen.bounds.size.width, self.view.height/3);
-    _settingBtn.frame = CGRectMake(20, ScreenHeight() - HOME_INDICATOR_HEIGHT - 50, 25, 25);
-    _windowBtn.frame = CGRectMake(20 + _settingBtn.right, _settingBtn.top, _settingBtn.width, _settingBtn.height);
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    [super viewWillTransitionToSize:size
+              withTransitionCoordinator:coordinator];
+    [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+        //update views here, e.g. calculate your view
+        
+        self.backgroundView.frame  = self.view.bounds;
+        self.myCarousel.frame = CGRectMake(0, STATUS_BAR_HEIGHT + 20, ScreenWidth(), 80);
+        self.goButton.frame = CGRectMake(ScreenWidth()/2 - 40, ScreenHeight() - TAB_BAR_HEIGHT - self.view.height/7, 80, 80);
+        self.pop.frame = UIScreen.mainScreen.bounds;
+        [self.pop deviceOrientionChanged];
+        
+        self.textView.size = CGSizeMake(UIScreen.mainScreen.bounds.size.width-34, self.view.height/3);
+        _settingBtn.frame = CGRectMake(20, ScreenHeight() - HOME_INDICATOR_HEIGHT - 50, 25, 25);
+        _windowBtn.frame = CGRectMake(20 + _settingBtn.right, _settingBtn.top, _settingBtn.width, _settingBtn.height);
+    }completion:^(id<UIViewControllerTransitionCoordinatorContext> context){
+    }];
 }
 
 @end

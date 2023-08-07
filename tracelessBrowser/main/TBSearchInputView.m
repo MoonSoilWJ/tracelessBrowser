@@ -191,7 +191,7 @@
     return _panGesture;
 }
 
--(void)deviceOrientionChanged:(UIDeviceOrientation)deviceOriention {
+-(void)deviceOrientionChanged{
     if (self.isShowing) {
         self.whiteView.frame = endFrame();
     }else {

@@ -64,43 +64,45 @@ static NSString *screenWidthKey = @"screenWidthKey";
     switch (deviceOrientation) {
         case UIDeviceOrientationFaceUp:
             deviceOrientation = UIDeviceOrientationFaceUp;
-//            NSLog(@"屏幕朝上平躺");
+            NSLog(@"屏幕朝上平躺");
             break;
         case UIDeviceOrientationFaceDown:
             deviceOrientation = UIDeviceOrientationFaceUp;
-//            NSLog(@"屏幕朝下平躺");
+            NSLog(@"屏幕朝下平躺");
             break;
         case UIDeviceOrientationUnknown:
-//            NSLog(@"未知方向");
+            NSLog(@"未知方向");
             break;
         case UIDeviceOrientationLandscapeLeft:{
-//            NSLog(@"屏幕向左横置");
+            NSLog(@"屏幕向左横置");
         }
             break;
         case UIDeviceOrientationLandscapeRight:
-//            NSLog(@"屏幕向右橫置");
+            NSLog(@"屏幕向右橫置");
             break;
         case UIDeviceOrientationPortrait:
             deviceOrientation = UIDeviceOrientationFaceUp;
-//            NSLog(@"屏幕直立");
+            NSLog(@"屏幕直立");
             break;
         case UIDeviceOrientationPortraitUpsideDown:
             deviceOrientation = UIDeviceOrientationFaceUp;
-//            NSLog(@"屏幕直立，上下顛倒");
+            NSLog(@"屏幕直立，上下顛倒");
             break;
         default:
-//            NSLog(@"无法辨识");
+            NSLog(@"无法辨识");
             break;
     }
     
-    if (self.lastScreenWidth != UIScreen.mainScreen.bounds.size.width) {
-        self.lastScreenWidth = UIScreen.mainScreen.bounds.size.width;
-        if ([self conformsToProtocol:@protocol(DeviceOrientionChangedProtocol)]) {
-            if ([self respondsToSelector:@selector(deviceOrientionChanged:)]) {
-                [self deviceOrientionChanged:deviceOrientation];
-            }
-        }
-    }
+//    if (self.lastScreenWidth != UIScreen.mainScreen.bounds.size.width) {
+//        self.lastScreenWidth = UIScreen.mainScreen.bounds.size.width;
+//        if ([self conformsToProtocol:@protocol(DeviceOrientionChangedProtocol)]) {
+//            if ([self respondsToSelector:@selector(deviceOrientionChanged:)]) {
+//                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//                    [self deviceOrientionChanged:deviceOrientation];
+//                });
+//            }
+//        }
+//    }
 }
 
 - (void)deviceOriendealloc {

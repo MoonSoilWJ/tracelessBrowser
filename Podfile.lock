@@ -1,3 +1,21 @@
-PODFILE CHECKSUM: e393d7f9963fa6fe6777062cc3ab604aa34c295b
+PODS:
+  - UMCommon (7.4.1):
+    - UMDevice
+  - UMDevice (3.1.0)
+
+DEPENDENCIES:
+  - UMCommon
+  - UMDevice
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - UMCommon
+    - UMDevice
+
+SPEC CHECKSUMS:
+  UMCommon: 47e0b53f6a36568e958a5abd005ed7577fcac9ad
+  UMDevice: 9ef8045b59e0479cff7062915c879a1af46fa094
+
+PODFILE CHECKSUM: 372958d50f8f1f66a7cffa0df3915c822d08f242
 
 COCOAPODS: 1.11.3

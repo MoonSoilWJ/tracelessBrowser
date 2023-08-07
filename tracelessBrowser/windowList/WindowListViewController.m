@@ -48,7 +48,8 @@ static NSString *addNewCellId = @"WindowListAddNewCell";
     self.fd_prefersNavigationBarHidden = YES;
      
     float itemWidth = 150;
-    float margin = (ScreenWidth() - 2*itemWidth) / 4.0;
+    float screenWidth = ScreenWidth()>ScreenHeight()?ScreenHeight():ScreenWidth();
+    float margin = (screenWidth - 2*itemWidth) / 4.0;
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     flowLayout.itemSize = CGSizeMake(itemWidth, 251);
     flowLayout.minimumLineSpacing = margin;
@@ -139,8 +140,16 @@ static NSString *addNewCellId = @"WindowListAddNewCell";
     return cell;
 }
 
-- (void)deviceOrientionChanged:(UIDeviceOrientation)deviceOrientation {
-    _collectionView.frame = CGRectMake(0, 0, ScreenWidth(), ScreenHeight());
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    [super viewWillTransitionToSize:size
+          withTransitionCoordinator:coordinator];
+    
+    [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+        //update views here, e.g. calculate your view
+        _collectionView.frame = CGRectMake(0, 0, ScreenWidth(), ScreenHeight());
+        [_collectionView reloadData];
+    }completion:^(id<UIViewControllerTransitionCoordinatorContext> context){
+    }];
 }
 
 @end

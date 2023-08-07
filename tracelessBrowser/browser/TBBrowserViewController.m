@@ -305,12 +305,12 @@
     
 }
 
-- (void)webView:(WKWebView *)webView didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler {
-    if (challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust) {
-        NSURLCredential *credential = [[NSURLCredential alloc] initWithTrust:challenge.protectionSpace.serverTrust];
-        completionHandler(NSURLSessionAuthChallengeUseCredential, credential);
-    }
-}
+//- (void)webView:(WKWebView *)webView didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler {
+//    if (challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust) {
+//        NSURLCredential *credential = [[NSURLCredential alloc] initWithTrust:challenge.protectionSpace.serverTrust];
+//        completionHandler(NSURLSessionAuthChallengeUseCredential, credential);
+//    }
+//}
 
 #pragma mark - scrollview delegate
 
@@ -514,15 +514,23 @@
 
 
 //MARK: device oriention changed
-- (void)deviceOrientionChanged:(UIDeviceOrientation)deviceOrientation {
-    self.webView.frame = CGRectMake(0, STATUS_BAR_HEIGHT + 44, ScreenWidth(), ScreenHeight() - STATUS_BAR_HEIGHT - 44);
-    _progressView.frame = CGRectMake(0, STATUS_BAR_HEIGHT + 44, XYWKScreenW, 1);
-    
-    self.webView.failView.frame = self.webView.bounds;
-    [self.webView.failView deviceOrientionChanged:deviceOrientation];
-    
-    _head.frame = CGRectMake(0, 0, ScreenWidth(), 44 + STATUS_BAR_HEIGHT);
-    [_head deviceOrientionChanged:deviceOrientation];
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    [super viewWillTransitionToSize:size
+          withTransitionCoordinator:coordinator];
+
+    [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+        //update views here, e.g. calculate your view
+        self.webView.frame = CGRectMake(0, STATUS_BAR_HEIGHT + 44, ScreenWidth(), ScreenHeight() - STATUS_BAR_HEIGHT - 44);
+        _progressView.frame = CGRectMake(0, STATUS_BAR_HEIGHT + 44, XYWKScreenW, 1);
+        
+        self.webView.failView.frame = self.webView.bounds;
+        [self.webView.failView deviceOrientionChanged];
+        
+        _head.frame = CGRectMake(0, 0, ScreenWidth(), 44 + STATUS_BAR_HEIGHT);
+        [_head deviceOrientionChanged];
+    } completion:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
+        
+    }];
 }
 
 //

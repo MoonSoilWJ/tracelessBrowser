@@ -114,10 +114,15 @@
 
 //MARK: 横竖屏切换 delegate
 
-- (void)deviceOrientionChanged:(UIDeviceOrientation)deviceOrientation {
-//    [super deviceOrientionChanged:deviceOrientation];
-    
-    _tableview.frame =  CGRectMake(0, 0, ScreenWidth(), ScreenHeight());
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    [super viewWillTransitionToSize:size
+          withTransitionCoordinator:coordinator];
+    [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+        //update views here, e.g. calculate your view
+        
+        _tableview.frame =  CGRectMake(0, 0, ScreenWidth(), ScreenHeight());
+    }completion:^(id<UIViewControllerTransitionCoordinatorContext> context){
+    }];
 }
 
 @end

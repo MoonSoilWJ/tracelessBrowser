@@ -185,7 +185,7 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void)deviceOrientionChanged:(UIDeviceOrientation)deviceOriention {
+- (void)deviceOrientionChanged{
     _gradientLayer.frame = self.bounds;
     _backBtn.frame = CGRectMake(20, 5 + STATUS_BAR_HEIGHT, 26, 26);
     _homeBtn.frame = CGRectMake(20 + 45, 5.5 + STATUS_BAR_HEIGHT, 25, 25);
@@ -194,7 +194,7 @@
     _titleLab.frame = CGRectMake(_homeBtn.right + 10, STATUS_BAR_HEIGHT + 2, _menuRefreshBtn.left - _homeBtn.right - 20 , 34);
     
     self.pop.frame = UIScreen.mainScreen.bounds;
-    [self.pop deviceOrientionChanged:deviceOriention];
+    [self.pop deviceOrientionChanged];
 }
 
 @end

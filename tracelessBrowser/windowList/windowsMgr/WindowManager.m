@@ -55,6 +55,7 @@
     }else {
         self.currentWindowIndex = self.windowsArray.count - 1;
     }
+    [self archiveWindows];
     return self.windowsArray[self.currentWindowIndex];
 }
 
@@ -81,20 +82,22 @@
     dispatch_async(queue, ^{
 
         NSDictionary *dic = @{@"currentIndex":@(self.currentWindowIndex),@"windows":self.windowsArray};
-        NSError *error;
-        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:dic requiringSecureCoding:YES error:&error];
-        BOOL result = [[NSFileManager defaultManager] createFileAtPath:windowsArhicvePath contents:data attributes:nil];
-        if (!result) {
-         BOOL result2 = [data writeToFile:windowsArhicvePath atomically:YES];
-        }
+//        NSError *error;
+//        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:dic requiringSecureCoding:YES error:&error];
+//        BOOL result = [[NSFileManager defaultManager] createFileAtPath:windowsArhicvePath contents:data attributes:nil];
+//        if (!result) {
+//         BOOL result2 = [data writeToFile:windowsArhicvePath atomically:YES];
+//        }
+        [NSKeyedArchiver archiveRootObject:dic toFile:windowsArhicvePath];
     });
 }
 
 - (void)unArchiveWindows {
     
-        NSData *data = [NSData dataWithContentsOfFile:windowsArhicvePath];
-        NSError *error;
-        NSDictionary *dic = [NSKeyedUnarchiver unarchivedObjectOfClass:NSObject.class fromData:data error:&error];
+//        NSData *data = [NSData dataWithContentsOfFile:windowsArhicvePath];
+//        NSError *error;
+//        NSDictionary *dic = [NSKeyedUnarchiver unarchivedObjectOfClass:NSObject.class fromData:data error:&error];
+    NSDictionary *dic = [NSKeyedUnarchiver unarchiveObjectWithFile:windowsArhicvePath];
         if (dic[@"currentIndex"]) {
             self.currentWindowIndex = [dic[@"currentIndex"] integerValue];
         }

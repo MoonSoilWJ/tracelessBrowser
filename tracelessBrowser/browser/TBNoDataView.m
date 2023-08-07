@@ -70,7 +70,7 @@
     self.hidden = YES;
 }
 
-- (void)deviceOrientionChanged:(UIDeviceOrientation)deviceOriention {
+- (void)deviceOrientionChanged{
     _imgView.frame = CGRectMake(0, self.height/6, _image.size.width, _image.size.height);
     _imgView.centerX = self.centerX;
     _titleLabel.frame = CGRectMake(0, _imgView.bottom + 25, self.width, 23);

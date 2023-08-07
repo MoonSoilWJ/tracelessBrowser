@@ -24,7 +24,7 @@
 
 - (void)showFrom:(UIView *)fromView animations:(void (^)(void))animations completion:(void (^)(void))completion;
 
-- (void)deviceOrientionChanged:(UIDeviceOrientation)deviceOriention;
+- (void)deviceOrientionChanged;
 
 - (void)close;
 

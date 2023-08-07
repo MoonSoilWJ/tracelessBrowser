@@ -137,6 +137,11 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
 #pragma mark -
 #pragma mark Initialisation
 
+- (void)setFrame:(CGRect)frame {
+    [super setFrame:frame];
+    _contentView.frame = self.bounds;
+}
+
 - (void)setUp
 {
     _decelerationRate = 0.95;
