@@ -46,7 +46,7 @@
     
     self.fd_prefersNavigationBarHidden = YES;
     self.fd_interactivePopMaxAllowedInitialDistanceToLeftEdge = 30;
-    self.navigationController.fd_fullscreenPopGestureRecognizer.delegate = self;
+//    self.navigationController.fd_fullscreenPopGestureRecognizer.delegate = self;
     self.view.backgroundColor = UIColor.whiteColor;
     
     WKWebViewConfiguration *config = [WKWebViewConfiguration new];
@@ -60,6 +60,7 @@
     [self.webView.failView.confirmButton addTarget:self action:@selector(reloadData) forControlEvents:UIControlEventTouchUpInside];
     
     [self.webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:NULL];
+    [self.webView addObserver:self forKeyPath:@"canGoBack" options:NSKeyValueObservingOptionNew context:NULL];
     [self.webView loadRequestWithRelativeUrl:self.url];
     [self.view addSubview:self.webView];
     
@@ -70,6 +71,7 @@
 
 - (void)dealloc {
     [self.webView removeObserver:self forKeyPath:@"estimatedProgress"];
+    [self.webView removeObserver:self forKeyPath:@"canGoBack"];
     XYWKLog(@"dealloc --- %@",NSStringFromClass([self class]));
 }
 
@@ -84,33 +86,33 @@
 
 //MARK: - gestureRecognizer
 
-- (BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)gestureRecognizer
-{
-    // Ignore when no view controller is pushed into the navigation stack.
-    if (self.navigationController.viewControllers.count <= 1) {
-        return NO;
-    }
-    
-    // Ignore when the active view controller doesn't allow interactive pop.
-    UIViewController *topViewController = self.navigationController.viewControllers.lastObject;
-    if (topViewController.fd_interactivePopDisabled) {
-        return NO;
-    }
-    
-    // Ignore when the beginning location is beyond max allowed initial distance to left edge.
-    CGPoint beginningLocation = [gestureRecognizer locationInView:gestureRecognizer.view];
-    CGFloat maxAllowedInitialDistance = topViewController.fd_interactivePopMaxAllowedInitialDistanceToLeftEdge;
-    if (maxAllowedInitialDistance > 0 && beginningLocation.x > maxAllowedInitialDistance) {
-        return NO;
-    }
-
-    // Ignore pan gesture when the navigation controller is currently in transition.
-    if ([[self.navigationController valueForKey:@"_isTransitioning"] boolValue]) {
-        return NO;
-    }
-    
-    return YES;
-}
+//- (BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)gestureRecognizer
+//{
+//    // Ignore when no view controller is pushed into the navigation stack.
+//    if (self.navigationController.viewControllers.count <= 1) {
+//        return NO;
+//    }
+//
+//    // Ignore when the active view controller doesn't allow interactive pop.
+//    UIViewController *topViewController = self.navigationController.viewControllers.lastObject;
+//    if (topViewController.fd_interactivePopDisabled) {
+//        return NO;
+//    }
+//
+//    // Ignore when the beginning location is beyond max allowed initial distance to left edge.
+//    CGPoint beginningLocation = [gestureRecognizer locationInView:gestureRecognizer.view];
+//    CGFloat maxAllowedInitialDistance = topViewController.fd_interactivePopMaxAllowedInitialDistanceToLeftEdge;
+//    if (maxAllowedInitialDistance > 0 && beginningLocation.x > maxAllowedInitialDistance) {
+//        return NO;
+//    }
+//
+//    // Ignore pan gesture when the navigation controller is currently in transition.
+//    if ([[self.navigationController valueForKey:@"_isTransitioning"] boolValue]) {
+//        return NO;
+//    }
+//
+//    return YES;
+//}
 
 #pragma mark - UI
 
@@ -123,7 +125,7 @@
     }
     
     self.progressATimer = [NSTimer scheduledTimerWithTimeInterval:0.02 repeats:YES block:^(NSTimer * _Nonnull timer) {
-
+        
         float progress = self.progressView.progress;
         if(progress >= 0.8){
             [timer invalidate];
@@ -136,7 +138,7 @@
             progress += 0.03;
         }
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self showLoadingProgress:progress andTintColor:[UIColor colorWithHexString:@"#F8F8F8"]];
+            [self showLoadingProgress:progress andTintColor:[UIColor colorWithHexString:@"#D8D8D8"]];
         });
     }];
 }
@@ -156,7 +158,7 @@
         }
         progress += 0.02;
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self showLoadingProgress:progress andTintColor:[UIColor colorWithHexString:@"#F8F8F8"]];
+            [self showLoadingProgress:progress andTintColor:[UIColor colorWithHexString:@"#D8D8D8"]];
         });
     }];
 }
@@ -182,7 +184,9 @@
     }
     
     self.progressView.progress = progress;
-    self.progressView.tintColor = color;
+    self.progressView.progressTintColor = color;
+    self.progressView.trackTintColor = [UIColor whiteColor];
+    
 }
 
 #pragma mark - KVO
@@ -197,8 +201,8 @@
                 [self progressStepA];
             }
         }
-    }else {
-        
+    }else if ([keyPath isEqualToString:@"canGoBack"]) {
+        [self judgeCanSwipeBack];
     }
 }
 
@@ -213,10 +217,10 @@
 - (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation {
     
     XYWKLog(@"%s：%@", __FUNCTION__,webView.URL);
-    [self judgeCanSwipeBack];
+//    [self judgeCanSwipeBack];
     
     _head.titleLab.text = [[webView.URL.absoluteString  stringByRemovingPercentEncoding] stringByReplacingOccurrencesOfString:[TBEnginsManager currentEngineUrl] withString:@""];
-
+    
 }
 
 /**
@@ -227,12 +231,12 @@
  */
 - (void)webView:(WKWebView *)webView didCommitNavigation:(WKNavigation *)navigation {
     XYWKLog(@"%s", __FUNCTION__);
-    [self judgeCanSwipeBack];
+//    [self judgeCanSwipeBack];
     
     [WindowManager.sharedInstance getcurrentWindow].url = webView.URL;
-//    [WindowManager.sharedInstance getcurrentWindow].webView = webView;
-
-//    [WindowManager.sharedInstance archiveWindows];
+    //    [WindowManager.sharedInstance getcurrentWindow].webView = webView;
+    
+    //    [WindowManager.sharedInstance archiveWindows];
 }
 /**
  *  页面加载完成之后调用
@@ -244,7 +248,7 @@
     
     // 实际上是首页加载完成之后就会走这个方法
     XYWKLog(@"%s 这个页面加载完成了",__func__);
-    [self judgeCanSwipeBack];
+//    [self judgeCanSwipeBack];
     
     self.webView.failView.hidden = YES;
 }
@@ -259,12 +263,12 @@
 - (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(WKNavigation *)navigation withError:(NSError *)error {
     
     XYWKLog(@"%s%@", __FUNCTION__,error);
-    [self judgeCanSwipeBack];
+//    [self judgeCanSwipeBack];
     [self progressStepB];
 }
 
 - (void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error {
-   
+    
     XYWKLog(@"%s%@", __FUNCTION__,error);
     if (error.code == -1001 ||
         error.code == -1003 ||
@@ -299,7 +303,7 @@
 }
 
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
-    [self judgeCanSwipeBack];
+//    [self judgeCanSwipeBack];
     //返回+2的枚举值,禁止universal link
     decisionHandler(WKNavigationActionPolicyAllow + 2);
     
@@ -356,9 +360,9 @@
     
     UIActivityViewController *aVC = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:@[
         //        [[TBCreateNewActivity alloc] init],
-                [[TBScreenShotActivity alloc] initWithWebView:self.webView],
-                [[TBCopyActivity alloc] initWithWebView:self.webView],
-            ]];
+        [[TBScreenShotActivity alloc] initWithWebView:self.webView],
+        [[TBCopyActivity alloc] initWithWebView:self.webView],
+    ]];
     aVC.excludedActivityTypes = @[UIActivityTypeAddToReadingList,UIActivityTypeCopyToPasteboard];
     aVC.completionWithItemsHandler = ^(NSString *activityType, BOOL completed, NSArray *returnedItems, NSError *activityError) //分享回调
     {
@@ -512,6 +516,22 @@
     return NO;
 }
 
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    [self resizeViews];
+}
+
+- (void)resizeViews {
+    //update views here, e.g. calculate your view
+    self.webView.frame = CGRectMake(0, STATUS_BAR_HEIGHT + 44, ScreenWidth(), ScreenHeight() - STATUS_BAR_HEIGHT - 44);
+    _progressView.frame = CGRectMake(0, STATUS_BAR_HEIGHT + 44, XYWKScreenW, 1);
+    
+    self.webView.failView.frame = self.webView.bounds;
+    [self.webView.failView deviceOrientionChanged];
+    
+    _head.frame = CGRectMake(0, 0, ScreenWidth(), 44 + STATUS_BAR_HEIGHT);
+    [_head deviceOrientionChanged];
+}
 
 //MARK: device oriention changed
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
@@ -519,15 +539,7 @@
           withTransitionCoordinator:coordinator];
 
     [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
-        //update views here, e.g. calculate your view
-        self.webView.frame = CGRectMake(0, STATUS_BAR_HEIGHT + 44, ScreenWidth(), ScreenHeight() - STATUS_BAR_HEIGHT - 44);
-        _progressView.frame = CGRectMake(0, STATUS_BAR_HEIGHT + 44, XYWKScreenW, 1);
-        
-        self.webView.failView.frame = self.webView.bounds;
-        [self.webView.failView deviceOrientionChanged];
-        
-        _head.frame = CGRectMake(0, 0, ScreenWidth(), 44 + STATUS_BAR_HEIGHT);
-        [_head deviceOrientionChanged];
+        [self resizeViews];
     } completion:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
         
     }];

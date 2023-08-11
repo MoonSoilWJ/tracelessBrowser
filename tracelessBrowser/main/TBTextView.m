@@ -37,6 +37,12 @@
     self.placeholderColor = UIColor.systemGrayColor;
 }
 
+- (void)setText:(NSString *)text {
+    [super setText:text];
+    
+    [self textViewDidChange:self];
+}
+
 // MARK: delegate
 
 - (BOOL)textView:(UITextView *)textView shouldInteractWithURL:(NSURL *)URL inRange:(NSRange)characterRange interaction:(UITextItemInteraction)interaction {
@@ -77,7 +83,7 @@
             urlStr = [textView.text substringWithRange:urlRange];
             NSURL *url = [NSURL URLWithString:urlStr];
             if (url) {
-                NSDictionary *linkDic = @{ NSLinkAttributeName : url};
+                NSDictionary *linkDic = @{ NSLinkAttributeName : url, NSUnderlineStyleAttributeName:[NSNumber numberWithInteger:NSUnderlineStyleSingle]};
                 NSMutableAttributedString *mutAtt = [[NSMutableAttributedString alloc] initWithString:textView.text attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:20]}];
                 
                 [mutAtt addAttributes:linkDic range:urlRange];
@@ -89,7 +95,7 @@
         }
         
         if (!has) {
-            NSMutableAttributedString *mutAtt = [[NSMutableAttributedString alloc] initWithString:textView.text attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:25]}];
+            NSMutableAttributedString *mutAtt = [[NSMutableAttributedString alloc] initWithString:textView.text attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:20]}];
             textView.attributedText = mutAtt;
         }
         

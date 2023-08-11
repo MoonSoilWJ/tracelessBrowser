@@ -16,9 +16,14 @@
 
 @implementation BaseViewController
 
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.fd_interactivePopDisabled = NO;
+}
+
 - (void)viewDidLoad{
     [super viewDidLoad];
-
+    self.fd_prefersNavigationBarHidden = NO;
     self.view.backgroundColor = UIColor.whiteColor;
     
     if (self.navigationController.viewControllers.count > 1){

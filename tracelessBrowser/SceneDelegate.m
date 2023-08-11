@@ -26,7 +26,7 @@
     
 
     if (![WindowManager.sharedInstance getcurrentWindow].isHome) {
-        NSString *urlString = [WindowManager.sharedInstance getcurrentWindow].url.absoluteString;
+        NSString *urlString = [[WindowManager.sharedInstance getcurrentWindow].url.absoluteString stringByRemovingPercentEncoding];
         TBBrowserViewController *searchVC = [TBBrowserViewController new];
         searchVC.url = urlString;
         [nav pushViewController:searchVC animated:NO];
